@@ -1,0 +1,63 @@
+.chat-box {
+	/* display: flex;
+	flex-direction: column; Stack elements vertically */
+	gap: 1rem; /* Space between elements */
+	min-width: 30rem;
+	border-color: orange;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.chat-header {
+	/* Styles for chat header */
+}
+
+.messages {
+	display: flex;
+	flex-direction: column; /* Stack messages vertically */
+	gap: 0.75rem; /* Space between messages */
+	overflow-y: auto; /* Allow scrolling if too many messages */
+	min-height: max-content;
+}
+
+.message {
+	padding: 0.5rem; /* Padding for messages */
+	border-radius: 5px; /* Rounded corners */
+	display: flex;
+	flex-direction: column;
+}
+
+.self {
+	background-color: #d1e7dd; /* Example background color for sent messages */
+	align-self: flex-end; /* Align sent messages to the end */
+}
+
+.align-self-start {
+	background-color: #f8d7da; /* Example background color for received messages */
+	align-self: flex-start; /* Align received messages to the start */
+}
+
+.message-footer {
+	font-size: 0.8rem; /* Smaller font for the timestamp */
+	color: gray; /* Gray color for the timestamp */
+}
+
+.chat-input {
+	display: flex; /* Flexbox for input and button */
+	gap: 0.75rem; /* Space between input and button */
+	align-items: center; /* Center items vertically */
+	min-width: 20rem;
+}
+
+.send-btn {
+	/* Styles for send button */
+	background-color: rgb(0, 157, 255); /* Customize as needed */
+	border: none; /* No border */
+	cursor: pointer; /* Pointer cursor on hover */
+	color: white;
+	width: 46px;
+	height: 40px;
+	border-radius: 3rem;
+	align-self: center;
+	margin-right: 1rem;
+}

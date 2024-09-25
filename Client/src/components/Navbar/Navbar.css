@@ -1,0 +1,42 @@
+.navbar {
+	background-color: #343a40; /* Dark background */
+	margin-bottom: 1rem; /* Space below navbar */
+	height: 3.75rem; /* Fixed height */
+	display: flex; /* Flexbox layout */
+	align-items: center; /* Center items vertically */
+	padding-left: 5rem;
+	padding-right: 5rem;
+}
+
+.container {
+	display: flex; /* Flexbox layout */
+	justify-content: space-between; /* Space between items */
+	width: 100%; /* Full width */
+	padding: 0 1rem; /* Horizontal padding */
+}
+
+.navbar-title {
+	margin: 0; /* Remove default margin */
+}
+
+.navbar-link {
+	color: #f8f9fa; /* Light link color */
+	text-decoration: none; /* Remove underline */
+}
+
+.navbar-link:hover {
+	text-decoration: underline; /* Underline on hover */
+}
+
+.navbar-user {
+	color: #ffc107; /* Warning color */
+}
+
+.navbar-nav {
+	display: flex; /* Flexbox for nav items */
+}
+
+.nav-items {
+	display: flex; /* Flexbox layout for nav items */
+	gap: 1rem; /* Space between nav items */
+}

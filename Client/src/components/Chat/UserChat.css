@@ -1,0 +1,52 @@
+.user-card {
+  display: flex;                  /* Use flexbox for layout */
+  align-items: center;           /* Center items vertically */
+  justify-content: space-between; /* Space items between edges */
+  padding: 1rem;                 /* Equivalent to Bootstrap's 'p-2' */
+  gap: 1rem;                     /* Equivalent to Bootstrap's 'gap-3' (adjust as needed) */
+  cursor: pointer;               /* Change cursor to pointer for button-like behavior */
+  border: 1px solid transparent; /* Optional: Add a border for better visibility */
+  border-radius: 4px;           /* Optional: Add rounded corners */
+  transition: background-color 0.3s; /* Optional: Smooth background change on hover */
+  
+  min-width: 15rem;
+  border-color: green;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.user-card:hover {
+  background-color: #f0f0f0;    /* Optional: Change background on hover */
+}
+
+.chat-item {
+  display: flex;                  /* Flexbox for layout */
+  justify-content: space-between; /* Space between the two main sections */
+  align-items: center;           /* Center items vertically */
+}
+
+.avatar-container {
+  margin-right: 0.5rem;         /* Equivalent to Bootstrap's 'me-2' */
+}
+
+.text-content {
+  flex-grow: 1;                  /* Allow this section to take up available space */
+}
+
+.date-container {
+  display: flex;                 /* Flexbox for date and notifications */
+  flex-direction: column;        /* Arrange items vertically */
+  align-items: flex-end;         /* Align items to the right */
+}
+
+.date {
+  /* Additional styles for date if needed */
+}
+
+.this-user-notifications {
+  /* Styles for notifications count */
+}
+
+.user-online {
+  /* Styles for online indicator */
+}

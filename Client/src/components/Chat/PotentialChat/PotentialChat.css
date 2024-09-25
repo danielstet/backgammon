@@ -1,0 +1,36 @@
+.PotentialChats {
+    background-color: darkgray;
+    width: auto;
+    height: 80px;
+    text-align: center;
+}
+
+.all-users {
+    background-color: aqua;
+    display:flex;
+    flex-direction: row;
+    gap: 0.4rem;
+    max-height: 80px;
+}
+
+.single-user {
+    background-color: orange;
+    width: fit-content;
+    padding: 0.2rem;
+    cursor:default;
+}
+
+.single-user:hover {
+    background-color: rgb(252, 188, 68);
+}
+
+.horizontal-stack {
+  display: flex;                /* Use flexbox for layout */
+  gap: 16px;                   /* Space between items (adjust as needed) */
+  align-items: flex-start;     /* Align items to the start vertically */
+}
+
+.messages-box {
+  flex-grow: 0;              /* Prevents the box from growing */
+  padding-right: 1rem;      /* Equivalent to Bootstrap's 'pe-3' (3 units of padding) */
+}

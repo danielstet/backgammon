@@ -1,32 +1,31 @@
-const express = require('express')
-const cors = require('cors')
+const express = require('express');
+const cors = require('cors');
 const colors = require('colors');
-const mongoose = require('mongoose')
-const userRoute = require('./Routes/userRouter')
+const mongoose = require('mongoose');
+const userRoute = require('./Routes/userRouter');
+const chatRoute = require('./Routes/chatRouter');
+const messageRoute = require('./Routes/messageRouter')
 
-
-
-const app = express()
-require("dotenv").config()
-const port = process.env.PORT || 4040; 
+const app = express();
+require('dotenv').config();
+const port = process.env.PORT || 4040;
 const connectionString = process.env.CONNECTION_STRING;
 
-app.use(express.json())
-app.use(cors())
+app.use(express.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
-    res.status(200).json("Welcome to the Backgammon RestAPI")
-})
+	res.status(200).json('Welcome to the Backgammon RestAPI');
+});
 
+app.use('/api/users', userRoute);
+app.use('/api/chats', chatRoute);
+app.use('/api/messages', messageRoute);
 
-app.use('/api/users', userRoute)
 
 app.listen(port, (req, res) => {
-    console.log(`RestAPI is running on port: ${port}`.green);
-})
-
-
-
+	console.log(`RestAPI is running on port: ${port}`.green);
+});
 
 mongoose
 	.connect(connectionString)

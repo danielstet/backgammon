@@ -1,0 +1,58 @@
+.notifications {
+  position: relative; /* Position for absolute child elements */
+}
+
+.notifications-icon {
+  cursor: pointer; /* Hand cursor for clickable element */
+  display: flex; /* Flexbox for alignment */
+  align-items: center; /* Center items vertically */
+}
+
+.notification-count {
+  background-color: #dc3545; /* Bootstrap danger color */
+  color: white;
+  border-radius: 50%; /* Circle shape */
+  padding: 0.25em 0.5em; /* Padding for visibility */
+  margin-left: 0.5em; /* Space between icon and count */
+}
+
+.notifications-box {
+  position: absolute; /* Position it under the icon */
+  right: 0; /* Align to the right */
+  top: 100%; /* Position below the icon */
+  background: white; /* White background for the box */
+  border: 1px solid #ccc; /* Light border */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  z-index: 1000; /* Ensure it appears above other elements */
+  width: 300px; /* Fixed width */
+  padding: 1em; /* Padding inside the box */
+}
+
+.notifications-header {
+  display: flex; /* Flexbox layout for header */
+  justify-content: space-between; /* Space between title and button */
+  align-items: center; /* Center items vertically */
+}
+
+.mark-as-read {
+  color: #007bff; /* Bootstrap primary color */
+  cursor: pointer; /* Hand cursor */
+}
+
+.notification {
+  padding: 0.5em 0; /* Padding for each notification */
+  border-bottom: 1px solid #f0f0f0; /* Light border between notifications */
+}
+
+.notification:last-child {
+  border-bottom: none; /* No border for the last notification */
+}
+
+.not-read {
+  font-weight: bold; /* Highlight unread notifications */
+}
+
+.notification-time {
+  font-size: 0.8em; /* Smaller font for time */
+  color: #888; /* Gray color */
+}
