@@ -9,6 +9,7 @@ io.on('connection', (socket) => {
 	console.log('New connection: ', socket.id);
 
 	// listen to a connection
+	//ggg
 	socket.on('addNewUser', (userId) => {
 		!onlineUsers.some((user) => user.userId === userId) &&
 			onlineUsers.push({
