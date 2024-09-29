@@ -18,7 +18,7 @@ const ChatBox = () => {
 	const handleScroll = () => {
 		if (scroll.current) {
 			scroll.current.scrollTop = scroll.current.scrollHeight; // גלילה לתחתית של הקופסה
-		}
+		} 
 	};
 	
 	useEffect(() => {
