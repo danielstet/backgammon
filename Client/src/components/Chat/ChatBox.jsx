@@ -14,39 +14,45 @@ const ChatBox = () => {
 	const [textMessage, setTextMessage] = useState('');
 	const scroll = useRef();
 
-  // scrolls down when a new message is recivied
+	// מאפס את הגובה של הגלילה 
+	const handleScroll = () => {
+		if (scroll.current) {
+			scroll.current.scrollTop = scroll.current.scrollHeight; // גלילה לתחתית של הקופסה
+		}
+	};
+	
 	useEffect(() => {
-		scroll.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
-  
-  if (!user) {
+		handleScroll(); // קובע גלילה לתחתית לאחר קבלת הודעות
+	}, [messages]);
+
+	if (!user) {
 		return (
 			<p style={{ textAlign: 'center', width: '100%' }}>
 				Loading user...
 			</p>
 		);
-  }
+	}
 
-  if (!recipientUser)
+	if (!recipientUser)
 		return (
 			<p style={{ textAlign: 'center', width: '100%' }}>
-				No conversetion selected yet...
+				No conversation selected yet...
 			</p>
 		);
 
-  if (isMessagesLoading)
+	if (isMessagesLoading)
 		return (
 			<p style={{ textAlign: 'center', width: '100%' }}>
 				Loading Chat...
 			</p>
 		);
 
-  return (
+	return (
 		<div className="chat-box">
 			<div className="chat-header">
 				<strong>{recipientUser?.name}</strong>
 			</div>
-			<div className="messages">
+			<div className="messages" ref={scroll}>
 				{messages &&
 					messages.map((message, index) => (
 						<div
@@ -56,7 +62,6 @@ const ChatBox = () => {
 									? 'self align-self-end'
 									: 'align-self-start'
 							}`}
-							ref={scroll}
 						>
 							<span>{message.text}</span>
 							<span className="message-footer">
@@ -96,7 +101,7 @@ const ChatBox = () => {
 				</button>
 			</div>
 		</div>
-  );
+	);
 }
 
-export default ChatBox
+export default ChatBox;
