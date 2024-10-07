@@ -1,0 +1,16 @@
+<mxfile host="65bd71144e">
+    <diagram id="ucQRVXv9W19qiHNVb-Y4" name="Page-1">
+        <mxGraphModel dx="867" dy="602" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Summerize" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="40" width="240" height="440" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="&lt;p&gt;The &lt;code&gt;OutBar&lt;/code&gt; component in this code is a React functional component designed to render a bar for a Backgammon game. It accepts several props:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;&lt;code&gt;fill&lt;/code&gt;&lt;/strong&gt;: A string that determines the color of the bar.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&lt;code&gt;isLeft&lt;/code&gt;&lt;/strong&gt;: A boolean that indicates whether the bar is positioned on the left.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&lt;code&gt;children&lt;/code&gt;&lt;/strong&gt;: React nodes that represent the content inside the bar.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&lt;code&gt;onClick&lt;/code&gt;&lt;/strong&gt;: An event handler for click events.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The component consists of a wrapper &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; that applies the fill color and a child &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; for layout. It also includes an SVG element with a polygon shape, which adapts its points based on the &lt;code&gt;isLeft&lt;/code&gt; prop. Overall, the &lt;code&gt;OutBar&lt;/code&gt; provides a visually styled bar that can respond to user interactions.&lt;/p&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="2">
+                    <mxGeometry y="30" width="240" height="410" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

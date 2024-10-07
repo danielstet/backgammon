@@ -1,0 +1,61 @@
+<mxfile host="65bd71144e">
+    <diagram id="ya5eD-D6xNT4kLfj_FOs" name="Page-1">
+        <mxGraphModel dx="867" dy="602" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="&lt;strong&gt;&lt;code&gt;checkCantMove&lt;/code&gt;&lt;/strong&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="40" width="160" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="This function checks if a player has any possible moves left. If they don't, it notifies the player and changes the turn to the opponent." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="2">
+                    <mxGeometry y="30" width="160" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="&lt;span style=&quot;background-color: initial; font-size: 14px;&quot;&gt;&lt;b&gt;Logic:&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Checks if the game is ongoing and if the player has possible moves using the &lt;/span&gt;&lt;code&gt;hasPossibleMove&lt;/code&gt;&lt;span style=&quot;background-color: initial;&quot;&gt; function.&lt;br&gt;&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;If there are no possible moves, it triggers an error toast and changes the turn.&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="2">
+                    <mxGeometry y="130" width="160" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;strong&gt;&lt;code&gt;hasPossibleMove&lt;/code&gt;&lt;/strong&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="40" width="200" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="This function determines whether the current player can make any moves based on their current position on the board." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="6">
+                    <mxGeometry y="30" width="200" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="&lt;span style=&quot;background-color: initial; font-size: 14px;&quot;&gt;&lt;b&gt;Logic:&lt;br&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;If the player has pieces in the out bar, it checks for possible moves to get those pieces out.&lt;br&gt;&lt;br&gt;It scans the board to see if the player's pieces can move to any available positions.&lt;br&gt;&lt;br&gt;If there are valid moves, it returns &lt;code&gt;true&lt;/code&gt;; otherwise, &lt;code&gt;false&lt;/code&gt;." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="6">
+                    <mxGeometry y="130" width="200" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;strong&gt;&lt;code&gt;calcPossibleMoves&lt;/code&gt;&lt;/strong&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="40" width="200" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="This function determines whether the current player can make any moves based on their current position on the board." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="9">
+                    <mxGeometry y="30" width="200" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="&lt;span style=&quot;background-color: initial; font-size: 14px;&quot;&gt;&lt;b&gt;Logic:&lt;br&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;If the player has pieces in the out bar, it checks for possible moves to get those pieces out.&lt;br&gt;&lt;br&gt;It scans the board to see if the player's pieces can move to any available positions.&lt;br&gt;&lt;br&gt;If there are valid moves, it returns &lt;code&gt;true&lt;/code&gt;; otherwise, &lt;code&gt;false&lt;/code&gt;." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="9">
+                    <mxGeometry y="130" width="200" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="&lt;strong&gt;&lt;code&gt;calcGettingOutOfOutMoves&lt;/code&gt;&lt;/strong&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="400" width="200" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="This function calculates potential moves for a player to move pieces out of the out bar." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="12">
+                    <mxGeometry y="30" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="&lt;span style=&quot;background-color: initial; font-size: 14px;&quot;&gt;&lt;b&gt;&lt;br&gt;Logic:&lt;br&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;It checks if the player can move from the out bar based on the rolled dice and the status of the opponent’s pieces on the destination bars.&lt;br&gt;&lt;br&gt;If a move is valid (either the destination is empty or contains only one opponent piece), it adds that move to the possible destinations." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="12">
+                    <mxGeometry y="90" width="200" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="&lt;strong&gt;&lt;code&gt;calcEndingDiceBars&lt;/code&gt;&lt;/strong&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="400" width="160" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="This function checks the potential bars the player can move to based on the ending positions related to the rolled dice." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="15">
+                    <mxGeometry y="30" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="&lt;span style=&quot;background-color: initial; font-size: 14px;&quot;&gt;&lt;b&gt;Logic:&lt;br&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;It looks for valid moves from the player's current positions based on their rolled dice.&lt;br&gt;&lt;br&gt;It adjusts for each die while checking whether the player has pieces on the calculated destination bars." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="15">
+                    <mxGeometry y="90" width="160" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Summary" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="400" width="320" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="&lt;h3 style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;Overall, this code facilitates the core mechanics of determining valid moves for a player in a turn-based board game.&amp;nbsp;&lt;/span&gt;&lt;/h3&gt;&lt;h3 style=&quot;font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;It considers:&lt;/font&gt;&lt;/h3&gt;&lt;h3 style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;The current game state and whether the player has pieces to move.&lt;/span&gt;&lt;/h3&gt;&lt;h3 style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;&lt;br&gt;The rolled dice values to calculate possible movements.&lt;br&gt;The board layout and the presence of opponent pieces to enforce movement rules.&lt;/span&gt;&lt;/h3&gt;&lt;h3 style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;&lt;br&gt;This design allows for an interactive game experience where players can easily see their options and receive feedback if they cannot move.&lt;/span&gt;&lt;br&gt;&lt;/h3&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="18">
+                    <mxGeometry y="30" width="320" height="290" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

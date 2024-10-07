@@ -1,0 +1,88 @@
+<mxfile host="65bd71144e">
+    <diagram id="c7S9N2AYdO8CDqgkPNtn" name="Page-1">
+        <mxGraphModel dx="1020" dy="708" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Overview" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="40" width="360" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="The &lt;code&gt;Game&lt;/code&gt; class manages the overall game state, including whether the game is active, the current state of the game board, and the two players (white and black)." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="2">
+                    <mxGeometry y="30" width="360" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;strong&gt;Private Properties&lt;/strong&gt;:" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="200" width="160" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;code&gt;_gameOn&lt;/code&gt;: A boolean indicating if the game is currently active." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="6">
+                    <mxGeometry y="30" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="&lt;code&gt;_board&lt;/code&gt;: A 2D array representing the game board's state." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="6">
+                    <mxGeometry y="90" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="&lt;code&gt;_whitePlayer&lt;/code&gt;: An instance of the &lt;code&gt;Player&lt;/code&gt; class representing the white player." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="6">
+                    <mxGeometry y="150" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;code&gt;_blackPlayer&lt;/code&gt;: An instance of the &lt;code&gt;Player&lt;/code&gt; class representing the black player." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="6">
+                    <mxGeometry y="230" width="160" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Constructor" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="200" width="160" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Sets &lt;code&gt;_gameOn&lt;/code&gt; to &lt;code&gt;false&lt;/code&gt;, indicating that the game has not started." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="10">
+                    <mxGeometry y="30" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Initializes &lt;code&gt;_board&lt;/code&gt; by calling the &lt;code&gt;initialState&lt;/code&gt; static method, which sets up the board with pieces in their starting positions." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="10">
+                    <mxGeometry y="110" width="160" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Creates two &lt;code&gt;Player&lt;/code&gt; instances for the white and black players, each initialized with their respective properties (name, display name, bars, etc.)." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="10">
+                    <mxGeometry y="210" width="160" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="Static Methods" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="200" width="160" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="&lt;strong&gt;&lt;code&gt;public static new&lt;/code&gt;&lt;/strong&gt;: A factory method that creates and returns a new instance of the &lt;code&gt;Game&lt;/code&gt; class. This allows for cleaner instantiation elsewhere in the code." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="15">
+                    <mxGeometry y="30" width="160" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="&lt;strong&gt;&lt;code&gt;public static initialState&lt;/code&gt;&lt;/strong&gt;: This method returns the initial setup of the game board as a 2D array, representing the starting positions of the game pieces for both players." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="15">
+                    <mxGeometry y="170" width="160" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="Getters and Setters" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="200" width="160" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="&lt;code&gt;gameOn&lt;/code&gt;: Gets or sets whether the game is currently active." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="20">
+                    <mxGeometry y="30" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="&lt;code&gt;board&lt;/code&gt;: Gets or sets the current state of the game board." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="20">
+                    <mxGeometry y="90" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="&lt;code&gt;whitePlayer&lt;/code&gt;: Gets or sets the white player." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="20">
+                    <mxGeometry y="150" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="&lt;code&gt;blackPlayer&lt;/code&gt;: Gets or sets the black player." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="20">
+                    <mxGeometry y="190" width="160" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="Method" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="560" width="160" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="&lt;strong&gt;&lt;code&gt;public clone()&lt;/code&gt;&lt;/strong&gt;: This method creates a new instance of &lt;code&gt;Game&lt;/code&gt; that is a copy of the current game state." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="25">
+                    <mxGeometry y="30" width="160" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="It copies the &lt;code&gt;_gameOn&lt;/code&gt; state." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="25">
+                    <mxGeometry y="120" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="It clones the &lt;code&gt;_board&lt;/code&gt;, creating a shallow copy." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="25">
+                    <mxGeometry y="160" width="160" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="It clones the &lt;code&gt;whitePlayer&lt;/code&gt; and &lt;code&gt;blackPlayer&lt;/code&gt; to ensure that changes to the players in the new game do not affect the original instance." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="25">
+                    <mxGeometry y="210" width="160" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="Summary" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="560" width="360" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="The &lt;code&gt;Game&lt;/code&gt; class encapsulates the logic and state necessary to manage a game. It initializes the game with two players and a board, provides methods to manipulate the game state, and allows for cloning of the game state for features like undo/redo or saving game progress. This structure supports clean, organized management of game mechanics and player interactions." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="30">
+                    <mxGeometry y="30" width="360" height="130" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

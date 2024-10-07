@@ -1,0 +1,46 @@
+<mxfile host="65bd71144e">
+    <diagram id="Kvgu0NnPIvsb5huZEjYq" name="Page-1">
+        <mxGraphModel dx="867" dy="602" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="&lt;strong&gt;&lt;code&gt;backgammon&lt;/code&gt; Function&lt;/strong&gt;:" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="40" width="320" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="&lt;p style=&quot;line-height: 140%;&quot;&gt;&lt;strong&gt;Purpose&lt;/strong&gt;: &lt;br&gt;Displays a toast message that provides historical context about the game of Backgammon.&lt;/p&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="2">
+                    <mxGeometry y="30" width="320" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="&lt;p style=&quot;line-height: 140%;&quot;&gt;&lt;strong style=&quot;background-color: initial;&quot;&gt;Implementation&lt;/strong&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;:&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Utilizes the &lt;/span&gt;&lt;code&gt;toast&lt;/code&gt;&lt;span style=&quot;background-color: initial;&quot;&gt; function to show a styled message.&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;The message includes a brief history of Backgammon, mentioning its age, the materials used for dice, and a quote attributed to John Locke.&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;The toast has a duration of 9000 milliseconds and a specific styling to enhance visibility.&lt;/span&gt;&lt;/p&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="2">
+                    <mxGeometry y="100" width="320" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;strong&gt;&lt;code&gt;startingGame&lt;/code&gt; Function&lt;/strong&gt;:" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="40" width="400" height="480" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;strong&gt;Purpose&lt;/strong&gt;: Determines which player starts the game by rolling the dice for both players." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="6">
+                    <mxGeometry y="30" width="400" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="&lt;strong style=&quot;background-color: initial;&quot;&gt;Parameters&lt;/strong&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;:&lt;/span&gt;&lt;br&gt;&lt;code&gt;game&lt;/code&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;: The current state of the game, which includes player information.&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="6">
+                    <mxGeometry y="90" width="400" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;strong&gt;Returns&lt;/strong&gt;: An instance of &lt;code&gt;ThisTurn&lt;/code&gt;, representing the player who will take the first turn." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="6">
+                    <mxGeometry y="150" width="400" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;p style=&quot;line-height: 140%;&quot;&gt;&lt;strong style=&quot;background-color: initial;&quot;&gt;Implementation&lt;/strong&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;:&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;A loop rolls the dice for both players until a winner is determined based on the sum of the dice.&lt;br&gt;&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Compares the sum of the dice rolls for the white player and the black player.&lt;br&gt;&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Depending on the outcome:&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- If the white player's roll is higher, they start, and a success &lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;message is displayed.&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- If the black player's roll is higher, they start, and a success &lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;message is displayed.&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;br&gt;The loop ensures that if the rolls are tied, the dice will be rolled again until a clear winner is found.&lt;/span&gt;&lt;/p&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="6">
+                    <mxGeometry y="180" width="400" height="300" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Key Logic and Considerations" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="320" width="320" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="&lt;strong&gt;User Experience&lt;/strong&gt;: The &lt;code&gt;backgammon&lt;/code&gt; function enhances the game's introduction, providing players with interesting facts that set the tone." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="11">
+                    <mxGeometry y="30" width="320" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="&lt;strong&gt;Game Start Logic&lt;/strong&gt;: The &lt;code&gt;startingGame&lt;/code&gt; function ensures fairness by repeatedly rolling until one player clearly wins the roll-off, which is crucial for the game's initial state." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="11">
+                    <mxGeometry y="80" width="320" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="&lt;strong&gt;Toast Notifications&lt;/strong&gt;: The use of toast notifications for both the historical context and the game start message improves the user experience by providing immediate feedback to players." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="11">
+                    <mxGeometry y="130" width="320" height="70" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

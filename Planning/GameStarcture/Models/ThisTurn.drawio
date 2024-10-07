@@ -1,0 +1,85 @@
+<mxfile host="65bd71144e">
+    <diagram name="Page-1" id="13PDzCPF6R0jn3qS35ng">
+        <mxGraphModel dx="860" dy="602" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1200" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="at5gpG672k7R_4c8Qnac-19" value="" style="group" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="120" y="60" width="120" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-17" value="thisTurn model" style="rounded=0;whiteSpace=wrap;html=1;" parent="at5gpG672k7R_4c8Qnac-19" vertex="1">
+                    <mxGeometry width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-18" value="manages the state of player turn" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="at5gpG672k7R_4c8Qnac-19" vertex="1">
+                    <mxGeometry y="60" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-20" value="private Properties" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="200" width="140" height="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-21" value="&lt;b&gt;_rolledDice:&lt;/b&gt;&lt;div&gt;Boolean that indicates if the dice was thrown&lt;/div&gt;" style="text;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="at5gpG672k7R_4c8Qnac-20" vertex="1">
+                    <mxGeometry y="30" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-22" value="&lt;b&gt;_maxMoves:&lt;/b&gt;&lt;div&gt;The maximum number of moves a player can make based on the dice rolled&amp;nbsp;&lt;/div&gt;" style="text;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="at5gpG672k7R_4c8Qnac-20" vertex="1">
+                    <mxGeometry y="100" width="140" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-23" value="&lt;b&gt;_movesMade:&lt;/b&gt;&lt;div&gt;The number of moves that have been made in the turn&lt;/div&gt;" style="text;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="at5gpG672k7R_4c8Qnac-20" vertex="1">
+                    <mxGeometry y="180" width="140" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-24" value="Ctor" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="200" width="140" height="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-25" value="&lt;b&gt;_turnPlayer:&lt;/b&gt;&lt;div&gt;The player who turn it is&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="at5gpG672k7R_4c8Qnac-24" vertex="1">
+                    <mxGeometry y="30" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-26" value="&lt;b&gt;_opponentPlayer:&lt;/b&gt;&lt;div&gt;The opponent player&lt;/div&gt;" style="text;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="at5gpG672k7R_4c8Qnac-24" vertex="1">
+                    <mxGeometry y="70" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-28" value="&lt;b&gt;_dices:&lt;/b&gt;&lt;div&gt;An array of numbers representing the dice&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="at5gpG672k7R_4c8Qnac-24" vertex="1">
+                    <mxGeometry y="110" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-27" value="&lt;b&gt;_beginning&lt;/b&gt;:&lt;div&gt;A Boolean indicating if its the beginning of the the turn&amp;nbsp;&lt;/div&gt;" style="text;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="at5gpG672k7R_4c8Qnac-24" vertex="1">
+                    <mxGeometry y="170" width="140" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-29" value="Static Methods" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="440" y="200" width="140" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-30" value="&lt;b&gt;public static new:&lt;/b&gt;&lt;div&gt;this method makes a new instance of thisTurn,&lt;/div&gt;&lt;div&gt;with two new &lt;b&gt;Player &lt;/b&gt;objects, and empty &lt;b&gt;_dices &lt;/b&gt;array and &lt;b&gt;_beginning&lt;/b&gt; set to false&lt;/div&gt;" style="text;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="at5gpG672k7R_4c8Qnac-29" vertex="1">
+                    <mxGeometry y="30" width="140" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-33" value="Getters&amp;nbsp; and setters (props)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="200" width="140" height="340" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-34" value="&lt;b&gt;turnPlayer&lt;/b&gt;:&lt;div&gt;get the current player&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="at5gpG672k7R_4c8Qnac-33" vertex="1">
+                    <mxGeometry y="30" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-35" value="&lt;b&gt;opponentPlayer:&lt;/b&gt;&lt;div&gt;gets the opponent&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="at5gpG672k7R_4c8Qnac-33" vertex="1">
+                    <mxGeometry y="70" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-36" value="&lt;b&gt;rolledDice:&lt;/b&gt;&lt;div&gt;gets or sets whether the dice have been rolled&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="at5gpG672k7R_4c8Qnac-33" vertex="1">
+                    <mxGeometry y="110" width="140" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-38" value="&lt;b&gt;dices:&lt;/b&gt;&lt;div&gt;Gets or sets the number of moves&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="at5gpG672k7R_4c8Qnac-33" vertex="1">
+                    <mxGeometry y="160" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-37" value="&lt;b&gt;movesMade:&lt;/b&gt;&lt;div&gt;Gets or sets the number of moves made&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="at5gpG672k7R_4c8Qnac-33" vertex="1">
+                    <mxGeometry y="220" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-39" value="&lt;b&gt;maxMoves:&lt;/b&gt;&lt;div&gt;gets or sets the maximum moves avaliable&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="at5gpG672k7R_4c8Qnac-33" vertex="1">
+                    <mxGeometry y="280" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-47" value="Methods" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="760" y="200" width="140" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="at5gpG672k7R_4c8Qnac-48" value="&lt;b&gt;public clone:&lt;/b&gt;&lt;div&gt;creates an instance clone of thisTurn,&lt;/div&gt;&lt;div&gt;preserving the state of: _rolledDice&lt;/div&gt;&lt;div&gt;_maxMoves _movesMade&lt;/div&gt;" style="text;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="at5gpG672k7R_4c8Qnac-47" vertex="1">
+                    <mxGeometry y="30" width="140" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Ctor Logic" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="560" width="630" height="225" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="When the &lt;code&gt;ThisTurn&lt;/code&gt; object is instantiated, it checks if it's the beginning of the turn (&lt;code&gt;_beginning&lt;/code&gt; is true) and if exactly two dice have been rolled (&lt;code&gt;_dices.length === 2&lt;/code&gt;).&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;br&gt;If both conditions are met and the two dice are equal (indicating a &quot;double&quot;), it adds the value of the rolled dice twice to &lt;/span&gt;&lt;code&gt;_dices&lt;/code&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;, effectively allowing the player to make additional moves.&lt;br&gt;&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;The &lt;/span&gt;&lt;code&gt;_beginning&lt;/code&gt;&lt;span style=&quot;background-color: initial;&quot;&gt; flag is then set to false, &lt;/span&gt;&lt;code&gt;_rolledDice&lt;/code&gt;&lt;span style=&quot;background-color: initial;&quot;&gt; is set to true, and &lt;/span&gt;&lt;code&gt;_maxMoves&lt;/code&gt;&lt;span style=&quot;background-color: initial;&quot;&gt; is calculated as the sum of the dice values.&lt;br&gt;&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;If the conditions are not met, it resets &lt;/span&gt;&lt;code&gt;_rolledDice&lt;/code&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;, &lt;/span&gt;&lt;code&gt;_maxMoves&lt;/code&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;, and &lt;/span&gt;&lt;code&gt;_movesMade&lt;/code&gt;&lt;span style=&quot;background-color: initial;&quot;&gt; to initial values.&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="3">
+                    <mxGeometry y="30" width="630" height="195" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

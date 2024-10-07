@@ -1,0 +1,58 @@
+<mxfile host="65bd71144e">
+    <diagram id="ZtwjBWxhgt_7FyXZSihp" name="Page-1">
+        <mxGraphModel dx="867" dy="602" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Overview of the Component" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="40" width="280" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="&lt;strong style=&quot;background-color: initial;&quot;&gt;Props Interface&lt;/strong&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;:&lt;/span&gt;&lt;br&gt;&lt;code&gt;BoardProps&lt;/code&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;: Specifies the expected props for the &lt;/span&gt;&lt;code&gt;BoardBottom&lt;/code&gt;&lt;span style=&quot;background-color: initial;&quot;&gt; component, including the game state, current move, and functions for rolling dice and selecting pieces.&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="2">
+                    <mxGeometry y="30" width="280" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="&lt;strong style=&quot;background-color: initial;&quot;&gt;Component Structure&lt;/strong&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;:&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;The main function returns a layout that includes:&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;The out bar for the white player on the left.&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;A button for rolling the dice or starting the game.&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;The out bar for the black player on the right.&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="2">
+                    <mxGeometry y="110" width="280" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;code&gt;CreateButton&lt;/code&gt; Function" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="40" width="440" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;strong&gt;Purpose&lt;/strong&gt;: Renders a button based on the game's current state." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="5">
+                    <mxGeometry y="30" width="440" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;strong style=&quot;background-color: initial;&quot;&gt;Implementation&lt;/strong&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;:&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;If the game is ongoing, it displays a button to roll the dice.&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;If the game has not started, it shows a button to begin the game.&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="5">
+                    <mxGeometry y="60" width="440" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;code&gt;CreateOutBar&lt;/code&gt; Function" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="200" width="440" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;strong&gt;Purpose&lt;/strong&gt;: Renders the out bar for a specific player." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="9">
+                    <mxGeometry y="30" width="440" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="&lt;strong&gt;Props&lt;/strong&gt;: Receives player data, whether it’s on the left side, and the fill color." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="9">
+                    <mxGeometry y="50" width="440" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="&lt;strong style=&quot;background-color: initial;&quot;&gt;Implementation&lt;/strong&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;:&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Handles click events for selecting the out bar.&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Renders each piece in the out bar using the &lt;/span&gt;&lt;code&gt;CreatePiece&lt;/code&gt;&lt;span style=&quot;background-color: initial;&quot;&gt; function, limiting the display to the first six pieces.&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="9">
+                    <mxGeometry y="70" width="440" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="&lt;strong&gt;&lt;code&gt;CreatePiece&lt;/code&gt; Function&lt;/strong&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="400" width="440" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="&lt;strong&gt;Purpose&lt;/strong&gt;: Renders individual pieces in the out bar." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="13">
+                    <mxGeometry y="30" width="440" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="&lt;strong&gt;Props&lt;/strong&gt;: Takes data about the piece, including its color, border, and whether it’s selected." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="13">
+                    <mxGeometry y="50" width="440" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="&lt;strong style=&quot;background-color: initial;&quot;&gt;Implementation&lt;/strong&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;:&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Displays the piece with a border that changes based on selection and the current move.&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Shows a count if there are more than six pieces in the out bar.&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="13">
+                    <mxGeometry y="80" width="440" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="Color and Style Logic" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="280" width="280" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="&lt;span style=&quot;background-color: initial;&quot;&gt;The fill colors for the out bars depend on the player, with distinct colors for the white (&lt;/span&gt;&lt;code&gt;#e0ded7&lt;/code&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;) and black (&lt;/span&gt;&lt;code&gt;#232937&lt;/code&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;) players.&lt;br&gt;&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;The border color for pieces is determined based on whether they are part of the current move or selected.&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="21">
+                    <mxGeometry y="30" width="280" height="130" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

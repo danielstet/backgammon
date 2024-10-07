@@ -30,7 +30,7 @@ export const ChatContextProvider = ({ children, user }) => {
 	// initital socekt:
 	useEffect(() => {
 		const newSocket = io(
-			import.meta.env.VITE_SOCKET_URL || 'http://localhost:3333'
+			import.meta.env.VITE_CHAT_SOCKET_URL || 'http://localhost:3333'
 		);
 		setSocket(newSocket);
 
@@ -285,6 +285,6 @@ export const ChatContextProvider = ({ children, user }) => {
 	);
 };
 ChatContextProvider.propTypes = {
-	children: PropTypes.node.isRequired,
+	children: PropTypes.node,
 	user: PropTypes.any,
 };

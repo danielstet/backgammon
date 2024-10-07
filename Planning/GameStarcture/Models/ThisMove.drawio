@@ -1,0 +1,70 @@
+<mxfile host="65bd71144e">
+    <diagram id="EYohZ2oC5XbU08SCMuwa" name="Page-1">
+        <mxGraphModel dx="867" dy="602" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Overview" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="40" width="360" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="The &lt;code&gt;ThisMove&lt;/code&gt; class captures the details of a move, including the source and destination of the move and potential valid target positions." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="2">
+                    <mxGeometry y="30" width="360" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;strong&gt;Private Properties&lt;/strong&gt;:" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="200" width="160" height="400" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;code&gt;_fromBarIdx&lt;/code&gt;: This property represents the index (or identifier) of the bar (starting position) from which a piece is being moved. It can be either a number or a string, initialized to &lt;code&gt;-1&lt;/code&gt; to indicate an undefined state." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="6">
+                    <mxGeometry y="30" width="160" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="&lt;code&gt;_toBarIdx&lt;/code&gt;: This property indicates the index (or identifier) of the bar (target position) to which a piece is being moved. It is initialized to &lt;code&gt;-1&lt;/code&gt;, indicating an undefined target." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="6">
+                    <mxGeometry y="180" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;code&gt;_canGoTo&lt;/code&gt;: This is an array that holds potential target positions where a piece can move. It is initialized as an empty array." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="6">
+                    <mxGeometry y="300" width="160" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Ctor" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="200" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="The constructor initializes the three private properties, setting them to default values that signify an uninitialized move." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="10">
+                    <mxGeometry y="30" width="160" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Static Methods" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="360" width="160" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="&lt;strong&gt;&lt;code&gt;public static new&lt;/code&gt;&lt;/strong&gt;: A factory method that creates and returns a new instance of the &lt;code&gt;ThisMove&lt;/code&gt; class. This is useful for easily instantiating moves with default values." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="14">
+                    <mxGeometry y="30" width="160" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Getters and Setters" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="200" width="160" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="&lt;strong&gt;&lt;code&gt;fromBarIdx&lt;/code&gt;&lt;/strong&gt;: A getter and setter for the starting index of the move." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="18">
+                    <mxGeometry y="30" width="160" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="&lt;strong&gt;&lt;code&gt;toBarIdx&lt;/code&gt;&lt;/strong&gt;: A getter and setter for the target index of the move." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="18">
+                    <mxGeometry y="80" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="&lt;strong&gt;&lt;code&gt;canGoTo&lt;/code&gt;&lt;/strong&gt;: A getter and setter for the array of potential target positions." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="18">
+                    <mxGeometry y="140" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="Cloning Method" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="200" width="160" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="&lt;strong&gt;&lt;code&gt;public clone()&lt;/code&gt;&lt;/strong&gt;: This method creates and returns a new instance of the &lt;code&gt;ThisMove&lt;/code&gt; class that is a copy of the current move. It ensures that:" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="22">
+                    <mxGeometry y="30" width="160" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="The &lt;code&gt;fromBarIdx&lt;/code&gt; and &lt;code&gt;toBarIdx&lt;/code&gt; are copied directly." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="22">
+                    <mxGeometry y="120" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="The &lt;code&gt;canGoTo&lt;/code&gt; array is shallow copied using the spread operator, ensuring that the new instance has its own independent array." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="22">
+                    <mxGeometry y="180" width="160" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="Summary" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="640" width="360" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="The &lt;code&gt;ThisMove&lt;/code&gt; class provides a structured way to represent a player's move in a board game. It includes essential attributes such as the source and destination of the move and possible valid target positions. The class also supports easy duplication of move instances through the &lt;code&gt;clone&lt;/code&gt; method, making it useful for tracking multiple moves during gameplay or for implementing features like undo/redo. Overall, this class is crucial for managing the state and logic of player movements in the game." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="26">
+                    <mxGeometry y="30" width="360" height="130" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
