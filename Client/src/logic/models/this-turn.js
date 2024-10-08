@@ -1,5 +1,6 @@
 import Player from './player';
 
+
 export default class ThisTurn {
 	constructor(turnPlayer, opponentPlayer, dices, beginning) {
 		this._rolledDice = false;

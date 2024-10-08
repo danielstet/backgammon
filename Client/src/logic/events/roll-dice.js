@@ -18,16 +18,16 @@ export function rollingDice(tempTurn) {
 		true
 	);
 
-	if (thisTurn.dices[0] === thisTurn.dices[1]) {
+	if (thisTurn._dices[0] === thisTurn._dices[1]) {
 		toast.success(
-			`${thisTurn.turnPlayer.icon}
-      🎲 Rolled a double ${thisTurn.dices} 🎲`,
+			`${thisTurn._turnPlayer._icon}
+      🎲 Rolled a double ${thisTurn._dices} 🎲`,
 			toastStyle(thisTurn)
 		);
 	} else {
 		toast.success(
-			`${thisTurn.turnPlayer.icon}
-      🎲 Rolled ${thisTurn.dices} 🎲`,
+			`${thisTurn._turnPlayer._icon}
+      🎲 Rolled ${thisTurn._dices} 🎲`,
 			toastStyle(thisTurn)
 		);
 	}
@@ -36,6 +36,6 @@ export function rollingDice(tempTurn) {
 }
 
 // Define prop types for the rollingDice function
-rollingDice.propTypes = {
-	tempTurn: PropTypes.instanceOf(ThisTurn),
-};
+// rollingDice.propTypes = {
+// 	tempTurn: PropTypes.instanceOf(ThisTurn),
+// };

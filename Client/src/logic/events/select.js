@@ -16,29 +16,38 @@ import { readyToEnd } from './end-game';
 import { movingPiece } from './moving';
 
 export function selecting(index, game, thisTurn, thisMove) {
+	console.log("selecting Func");
+	console.log("index", index);
+	console.log("game", game);
+	console.log("thisTurn", thisTurn);
+	console.log("thisMove", thisMove);
+	
+	
+	
+
 	const newMove = () => new ThisMove();
 
-	if (!game.gameOn) {
+	if (!game._gameOn) {
 		toast.error('Begin a Game first!', toastStyle(thisTurn));
 		return [game, thisTurn, thisMove];
 	}
 
-	if (!thisTurn.rolledDice) {
+	if (!thisTurn._rolledDice) {
 		toast.error('Roll a dice first!', toastStyle(thisTurn));
 		return [game, thisTurn, thisMove];
 	}
 
 	if (
-		thisTurn.turnPlayer.outBar.length === 0 &&
-		index === thisTurn.turnPlayer.outBarIdx
+		thisTurn._turnPlayer._outBar.length === 0 &&
+		index === thisTurn._turnPlayer._outBarIdx
 	) {
 		toast.error('You have no pieces on out bar.', toastStyle(thisTurn));
 		return [game, thisTurn, thisMove];
 	}
 
 	if (
-		!thisTurn.turnPlayer.inTheEnd &&
-		index === thisTurn.turnPlayer.endBarIdx
+		!thisTurn._turnPlayer._inTheEnd &&
+		index === thisTurn._turnPlayer._endBarIdx
 	) {
 		toast.error(
 			`You have not brought all your pieces to the ending area yet.`,
@@ -48,9 +57,9 @@ export function selecting(index, game, thisTurn, thisMove) {
 	}
 
 	if (
-		thisMove.fromBarIdx === -1 &&
+		thisMove._fromBarIdx === -1 &&
 		typeof index === 'number' &&
-		game.board[index].length === 0
+		game._board[index].length === 0
 	) {
 		toast.error("You can't select an empty bar.", toastStyle(thisTurn));
 		return [game, thisTurn, thisMove];
@@ -58,28 +67,28 @@ export function selecting(index, game, thisTurn, thisMove) {
 
 	if (
 		typeof index === 'number' &&
-		game.board[index].includes(thisTurn.opponentPlayer.name) &&
-		game.board[index].length > 1
+		game._board[index].includes(thisTurn._opponentPlayer._name) &&
+		game._board[index].length > 1
 	) {
 		toast.error("You can't select opponent's bar.", toastStyle(thisTurn));
 		console.log(
-			'thisTurn.opponentPlayer.name:',
-			thisTurn.opponentPlayer.name,
-			'thisTurn.turnPlayer.name:',
-			thisTurn.turnPlayer.name,
-			'thisTurn.rolledDice:',
-			thisTurn.rolledDice,
-			'thisTurn.dices:',
-			thisTurn.dices
+			'thisTurn._opponentPlayer._name:',
+			thisTurn._opponentPlayer._name,
+			'thisTurn._turnPlayer._name:',
+			thisTurn._turnPlayer._name,
+			'thisTurn._rolledDice:',
+			thisTurn._rolledDice,
+			'thisTurn._dices:',
+			thisTurn._dices
 		);
 		
 		return [game, thisTurn, thisMove];
 	}
 
 	if (
-		thisTurn.turnPlayer.outBar.length !== 0 &&
-		thisMove.fromBarIdx !== thisTurn.turnPlayer.outBarIdx &&
-		index !== thisTurn.turnPlayer.outBarIdx
+		thisTurn._turnPlayer._outBar.length !== 0 &&
+		thisMove._fromBarIdx !== thisTurn._turnPlayer._outBarIdx &&
+		index !== thisTurn._turnPlayer._outBarIdx
 	) {
 		toast.error(
 			`You have to play your out pieces first.`,
@@ -89,21 +98,21 @@ export function selecting(index, game, thisTurn, thisMove) {
 	}
 
 	// Deselecting 'from'
-	if (index === thisMove.fromBarIdx) {
+	if (index === thisMove._fromBarIdx) {
 		thisMove = newMove();
 		return [game, thisTurn, thisMove];
 	}
 
 	// Setting 'from' End Bar
-	if (thisMove.fromBarIdx === -1 && index === thisTurn.turnPlayer.endBarIdx) {
+	if (thisMove._fromBarIdx === -1 && index === thisTurn._turnPlayer._endBarIdx) {
 		thisMove = settingFromEndBar(index, game, thisTurn, thisMove);
 		return [game, thisTurn, thisMove];
 	}
 
 	// Setting 'from' Out Bar
 	if (
-		thisTurn.turnPlayer.outBar.length !== 0 &&
-		index === thisTurn.turnPlayer.outBarIdx
+		thisTurn._turnPlayer._outBar.length !== 0 &&
+		index === thisTurn._turnPlayer._outBarIdx
 	) {
 		thisMove = settingFromOutBar(index, game, thisTurn, thisMove);
 		return [game, thisTurn, thisMove];
@@ -117,24 +126,24 @@ export function selecting(index, game, thisTurn, thisMove) {
 	// Main Bars
 	if (
 		// Setting 'from' Main Bar
-		thisMove.fromBarIdx === -1 &&
-		game.board[index].includes(thisTurn.turnPlayer.name)
+		thisMove._fromBarIdx === -1 &&
+		game._board[index].includes(thisTurn._turnPlayer._name)
 	) {
 		thisMove = settingFromBar(game, index, thisTurn, thisMove);
 		return [game, thisTurn, thisMove];
 	} else if (
 		// Setting 'to' Bar for main, out, and end moves
-		thisMove.toBarIdx === -1 &&
-		thisMove.canGoTo.includes(index)
+		thisMove._toBarIdx === -1 &&
+		thisMove._canGoTo.includes(index)
 	) {
 		thisTurn = settingToBar(index, game, thisTurn, thisMove);
 		thisMove = newMove();
 
-		if (!thisTurn.turnPlayer.inTheEnd && readyToEnd(game, thisTurn)) {
-			thisTurn.turnPlayer.inTheEnd = true;
+		if (!thisTurn._turnPlayer._inTheEnd && readyToEnd(game, thisTurn)) {
+			thisTurn._turnPlayer._inTheEnd = true;
 
 			toast.success(
-				`${thisTurn.turnPlayer.icon} 
+				`${thisTurn._turnPlayer._icon} 
       is in the ending area!
       Select your ending bar
       & start putting pieces out.`,
@@ -142,12 +151,13 @@ export function selecting(index, game, thisTurn, thisMove) {
 			);
 		}
 
-		if (thisTurn.maxMoves === 0) {
+		// should happen
+		if (thisTurn._maxMoves === 0) {
 			thisTurn = changeTurn(game, thisTurn);
 			return [game, thisTurn, thisMove];
 		}
 
-		if (thisTurn.rolledDice) {
+		if (thisTurn._rolledDice) {
 			thisTurn = checkCantMove(game, thisTurn);
 			return [game, thisTurn, thisMove];
 		}
@@ -157,7 +167,7 @@ export function selecting(index, game, thisTurn, thisMove) {
 	}
 
 	toast('Why are you here?', toastStyle(thisTurn));
-	console.log(thisTurn);
+	console.log("select:", thisTurn);
 
 	return [game, thisTurn, thisMove];
 }
@@ -166,8 +176,8 @@ export function settingFromBar(game, index, thisTurn, thisMove) {
 	const canGoTo = calcPossibleMoves(game, index, thisTurn);
 
 	if (canGoTo.length !== 0) {
-		thisMove.fromBarIdx = index;
-		thisMove.canGoTo = canGoTo;
+		thisMove._fromBarIdx = index;
+		thisMove._canGoTo = canGoTo;
 	} else {
 		toast.error("You can't select there.", toastStyle(thisTurn));
 	}
@@ -176,10 +186,10 @@ export function settingFromBar(game, index, thisTurn, thisMove) {
 }
 
 export function settingFromOutBar(index, game, thisTurn, thisMove) {
-	thisMove.fromBarIdx = index;
+	thisMove._fromBarIdx = index;
 
 	const canGoTo = calcGettingOutOfOutMoves(game, thisTurn);
-	thisMove.canGoTo = canGoTo;
+	thisMove._canGoTo = canGoTo;
 
 	return thisMove;
 }
@@ -189,8 +199,8 @@ export function settingFromEndBar(index, game, thisTurn, thisMove) {
 		const endingDiceBars = calcEndingDiceBars(game, thisTurn);
 
 		if (endingDiceBars.length !== 0) {
-			thisMove.fromBarIdx = index;
-			thisMove.canGoTo = endingDiceBars;
+			thisMove._fromBarIdx = index;
+			thisMove._canGoTo = endingDiceBars;
 			return thisMove;
 		} else {
 			toast.error("You can't select there.", toastStyle(thisTurn));
@@ -201,7 +211,7 @@ export function settingFromEndBar(index, game, thisTurn, thisMove) {
 }
 
 export function settingToBar(index, game, thisTurn, thisMove) {
-	thisMove.toBarIdx = index;
+	thisMove._toBarIdx = index;
 	movingPiece(game, thisTurn, thisMove);
 
 	thisTurn = calcMovesMade(thisTurn, thisMove);
@@ -210,37 +220,37 @@ export function settingToBar(index, game, thisTurn, thisMove) {
 }
 
 // Define PropTypes for the functions
-selecting.propTypes = {
-	index: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-	game: PropTypes.instanceOf(Game),
-	thisTurn: PropTypes.instanceOf(ThisTurn),
-	thisMove: PropTypes.instanceOf(ThisMove),
-};
+// selecting.propTypes = {
+// 	index: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+// 	game: PropTypes.instanceOf(Game),
+// 	thisTurn: PropTypes.instanceOf(ThisTurn),
+// 	thisMove: PropTypes.instanceOf(ThisMove),
+// };
 
-settingFromBar.propTypes = {
-	game: PropTypes.instanceOf(Game),
-	index: PropTypes.number,
-	thisTurn: PropTypes.instanceOf(ThisTurn),
-	thisMove: PropTypes.instanceOf(ThisMove),
-};
+// settingFromBar.propTypes = {
+// 	game: PropTypes.instanceOf(Game),
+// 	index: PropTypes.number,
+// 	thisTurn: PropTypes.instanceOf(ThisTurn),
+// 	thisMove: PropTypes.instanceOf(ThisMove),
+// };
 
-settingFromOutBar.propTypes = {
-	index: PropTypes.string,
-	game: PropTypes.instanceOf(Game),
-	thisTurn: PropTypes.instanceOf(ThisTurn),
-	thisMove: PropTypes.instanceOf(ThisMove),
-};
+// settingFromOutBar.propTypes = {
+// 	index: PropTypes.string,
+// 	game: PropTypes.instanceOf(Game),
+// 	thisTurn: PropTypes.instanceOf(ThisTurn),
+// 	thisMove: PropTypes.instanceOf(ThisMove),
+// };
 
-settingFromEndBar.propTypes = {
-	index: PropTypes.string,
-	game: PropTypes.instanceOf(Game),
-	thisTurn: PropTypes.instanceOf(ThisTurn),
-	thisMove: PropTypes.instanceOf(ThisMove),
-};
+// settingFromEndBar.propTypes = {
+// 	index: PropTypes.string,
+// 	game: PropTypes.instanceOf(Game),
+// 	thisTurn: PropTypes.instanceOf(ThisTurn),
+// 	thisMove: PropTypes.instanceOf(ThisMove),
+// };
 
-settingToBar.propTypes = {
-	index: PropTypes.number,
-	game: PropTypes.instanceOf(Game),
-	thisTurn: PropTypes.instanceOf(ThisTurn),
-	thisMove: PropTypes.instanceOf(ThisMove),
-};
+// settingToBar.propTypes = {
+// 	index: PropTypes.number,
+// 	game: PropTypes.instanceOf(Game),
+// 	thisTurn: PropTypes.instanceOf(ThisTurn),
+// 	thisMove: PropTypes.instanceOf(ThisMove),
+// };

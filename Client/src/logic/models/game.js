@@ -1,7 +1,11 @@
 import Player from './player';
 
+
+
 export default class Game {
-	constructor() {
+	constructor(whitePlayerId, blackPlayerId) {
+		// console.log('game.js created');
+		
 		this._gameOn = false;
 		this._board = Game.initialState();
 		this._whitePlayer = new Player(
@@ -10,7 +14,8 @@ export default class Game {
 			'WhiteOutBar',
 			'WhiteEndBar',
 			'White',
-			'1px solid black'
+			'1px solid black',
+			whitePlayerId
 		);
 		this._blackPlayer = new Player(
 			'Black',
@@ -18,12 +23,13 @@ export default class Game {
 			'BlackOutBar',
 			'BlackEndBar',
 			'Black',
-			'1px solid #e9e2d6'
+			'1px solid #e9e2d6',
+			blackPlayerId
 		);
 	}
 
-	static new() {
-		return new Game();
+	static new(whitePlayerId, blackPlayerId) {
+		return new Game(whitePlayerId, blackPlayerId);
 	}
 
 	static initialState() {

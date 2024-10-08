@@ -6,7 +6,7 @@ import Game from '../models/game';
 import ThisTurn from '../models/this-turn';
 
 export function checkCantMove(game, thisTurn) {
-	if (game.gameOn && !hasPossibleMove(game, thisTurn)) {
+	if (game._gameOn && !hasPossibleMove(game, thisTurn)) {
 		toast.error(
 			`You have no possible moves.
       Turn changes to opponent.`,
@@ -20,14 +20,14 @@ export function checkCantMove(game, thisTurn) {
 }
 
 export function hasPossibleMove(game, thisTurn) {
-	if (thisTurn.turnPlayer.outBar.length !== 0) {
+	if (thisTurn._turnPlayer._outBar.length !== 0) {
 		const canGoTo = calcGettingOutOfOutMoves(game, thisTurn);
 		return canGoTo.length !== 0;
 	}
 
 	const containing = [];
-	game.board.map((bar, barIdx) => {
-		if (bar.includes(thisTurn.turnPlayer.name)) containing.push(barIdx);
+	game._board.map((bar, barIdx) => {
+		if (bar.includes(thisTurn._turnPlayer._name)) containing.push(barIdx);
 	});
 
 	const allMoves = [];
@@ -43,22 +43,22 @@ export function hasPossibleMove(game, thisTurn) {
 }
 
 export function calcPossibleMoves(game, fromBarIdx, thisTurn) {
-	let [firstDice, secondDice] = thisTurn.dices;
+	let [firstDice, secondDice] = thisTurn._dices;
 
 	if (firstDice === null) firstDice = 0;
 	if (secondDice === null) secondDice = 0;
 
 	const canGoTo = [];
 
-	for (let i = 0; i < game.board.length; i++) {
-		const toBar = game.board[i];
+	for (let i = 0; i < game._board.length; i++) {
+		const toBar = game._board[i];
 		const toBarIdx = i;
 
-		if (toBar.includes(thisTurn.opponentPlayer.name) && toBar.length > 1) {
+		if (toBar.includes(thisTurn._opponentPlayer._name) && toBar.length > 1) {
 			continue;
 		}
 
-		if (thisTurn.turnPlayer.name === 'White') {
+		if (thisTurn._turnPlayer._name === 'White') {
 			if (
 				(fromBarIdx <= 11 &&
 					toBarIdx <= 11 &&
@@ -109,18 +109,18 @@ export function calcPossibleMoves(game, fromBarIdx, thisTurn) {
 
 export function calcGettingOutOfOutMoves(game, thisTurn) {
 	function checkForOpponent(bar) {
-		const opponentPlayer = thisTurn.opponentPlayer.name;
+		const opponentPlayer = thisTurn._opponentPlayer._name;
 		return (
-			!game.board[bar].includes(opponentPlayer) ||
-			(game.board[bar].includes(opponentPlayer) &&
-				game.board[bar].length === 1)
+			!game._board[bar].includes(opponentPlayer) ||
+			(game._board[bar].includes(opponentPlayer) &&
+				game._board[bar].length === 1)
 		);
 	}
 
 	const canGoTo = [];
-	const [firstDice, secondDice] = thisTurn.dices;
+	const [firstDice, secondDice] = thisTurn._dices;
 
-	if (thisTurn.turnPlayer.name === 'White') {
+	if (thisTurn._turnPlayer._name === 'White') {
 		if (firstDice > 0 && checkForOpponent(12 - firstDice)) {
 			canGoTo.push(12 - firstDice);
 		}
@@ -140,14 +140,14 @@ export function calcGettingOutOfOutMoves(game, thisTurn) {
 }
 
 export function calcEndingDiceBars(game, thisTurn) {
-	const turnPlayer = thisTurn.turnPlayer.name;
+	const turnPlayer = thisTurn._turnPlayer._name;
 
 	function includesPlayer(bar) {
-		return game.board[bar].includes(turnPlayer);
+		return game._board[bar].includes(turnPlayer);
 	}
 
 	const canGoFrom = [];
-	let [firstDice, secondDice] = thisTurn.dices;
+	let [firstDice, secondDice] = thisTurn._dices;
 
 	while (firstDice > 0 || secondDice > 0) {
 		if (turnPlayer === 'White') {
@@ -183,28 +183,28 @@ export function calcEndingDiceBars(game, thisTurn) {
 }
 
 // Define PropTypes for the functions
-checkCantMove.propTypes = {
-	game: PropTypes.instanceOf(Game),
-	thisTurn: PropTypes.instanceOf(ThisTurn),
-};
+// checkCantMove.propTypes = {
+// 	game: PropTypes.instanceOf(Game),
+// 	thisTurn: PropTypes.instanceOf(ThisTurn),
+// };
 
-hasPossibleMove.propTypes = {
-	game: PropTypes.instanceOf(Game),
-	thisTurn: PropTypes.instanceOf(ThisTurn),
-};
+// hasPossibleMove.propTypes = {
+// 	game: PropTypes.instanceOf(Game),
+// 	thisTurn: PropTypes.instanceOf(ThisTurn),
+// };
 
-calcPossibleMoves.propTypes = {
-	game: PropTypes.instanceOf(Game),
-	fromBarIdx: PropTypes.number,
-	thisTurn: PropTypes.instanceOf(ThisTurn),
-};
+// calcPossibleMoves.propTypes = {
+// 	game: PropTypes.instanceOf(Game),
+// 	fromBarIdx: PropTypes.number,
+// 	thisTurn: PropTypes.instanceOf(ThisTurn),
+// };
 
-calcGettingOutOfOutMoves.propTypes = {
-	game: PropTypes.instanceOf(Game),
-	thisTurn: PropTypes.instanceOf(ThisTurn),
-};
+// calcGettingOutOfOutMoves.propTypes = {
+// 	game: PropTypes.instanceOf(Game),
+// 	thisTurn: PropTypes.instanceOf(ThisTurn),
+// };
 
-calcEndingDiceBars.propTypes = {
-	game: PropTypes.instanceOf(Game),
-	thisTurn: PropTypes.instanceOf(ThisTurn),
-};
+// calcEndingDiceBars.propTypes = {
+// 	game: PropTypes.instanceOf(Game),
+// 	thisTurn: PropTypes.instanceOf(ThisTurn),
+// };

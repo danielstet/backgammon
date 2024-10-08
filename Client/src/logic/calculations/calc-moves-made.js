@@ -4,7 +4,7 @@ import ThisTurn from '../models/this-turn';
 
 export function calcMovesMade(thisTurn, thisMove) {
 	let distance = 0;
-	const [fromBarIdx, toBarIdx] = [thisMove.fromBarIdx, thisMove.toBarIdx];
+	const [fromBarIdx, toBarIdx] = [thisMove._fromBarIdx, thisMove._toBarIdx];
 
 	if (typeof fromBarIdx === 'number') {
 		if (fromBarIdx <= 11) {
@@ -19,40 +19,40 @@ export function calcMovesMade(thisTurn, thisMove) {
 					: fromBarIdx + (toBarIdx - 11);
 		}
 	} else {
-		if (fromBarIdx === thisTurn.turnPlayer.outBarIdx) {
+		if (fromBarIdx === thisTurn._turnPlayer._outBarIdx) {
 			distance =
-				thisTurn.turnPlayer.name === 'White'
+				thisTurn._turnPlayer._name === 'White'
 					? 12 - toBarIdx
 					: 24 - toBarIdx;
 		}
 
-		if (fromBarIdx === thisTurn.turnPlayer.endBarIdx) {
+		if (fromBarIdx === thisTurn._turnPlayer._endBarIdx) {
 			distance =
-				thisTurn.turnPlayer.name === 'White'
+				thisTurn._turnPlayer._name === 'White'
 					? 24 - toBarIdx
 					: 12 - toBarIdx;
 		}
 	}
 
-	thisTurn.movesMade = distance;
+	thisTurn._movesMade = distance;
 
 	if (
-		thisTurn.movesMade === thisTurn.dices[0] ||
-		(thisTurn.turnPlayer.inTheEnd && distance <= thisTurn.dices[0])
+		thisTurn._movesMade === thisTurn._dices[0] ||
+		(thisTurn._turnPlayer._inTheEnd && distance <= thisTurn._dices[0])
 	) {
-		thisTurn.maxMoves -= thisTurn.dices.shift();
+		thisTurn._maxMoves -= thisTurn._dices.shift();
 	} else if (
-		thisTurn.movesMade === thisTurn.dices[1] ||
-		(thisTurn.turnPlayer.inTheEnd && distance <= thisTurn.dices[1])
+		thisTurn._movesMade === thisTurn._dices[1] ||
+		(thisTurn._turnPlayer._inTheEnd && distance <= thisTurn._dices[1])
 	) {
-		thisTurn.maxMoves -= thisTurn.dices.pop();
+		thisTurn._maxMoves -= thisTurn._dices.pop();
 	}
 
 	return thisTurn;
 }
 
 // Define PropTypes for the function
-calcMovesMade.propTypes = {
-	thisTurn: PropTypes.instanceOf(ThisTurn),
-	thisMove: PropTypes.instanceOf(ThisMove),
-};
+// calcMovesMade.propTypes = {
+// 	thisTurn: PropTypes.instanceOf(ThisTurn),
+// 	thisMove: PropTypes.instanceOf(ThisMove),
+// };

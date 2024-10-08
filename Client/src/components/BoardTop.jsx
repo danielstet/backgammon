@@ -6,34 +6,36 @@ import Bar from './GameComponents/Bar/Bar';
 import Board from './GameComponents/Board/Board';
 import EndBar from './GameComponents/EndBar/EndBar';
 import Piece from './GameComponents/Piece/Piece';
-import './Board.css'
+import './Board.css';
 
 export default function BoardTop(props) {
-	CreateBar.propTypes = {
-		bar: PropTypes.arrayOf(PropTypes.string),
-		barIdx: PropTypes.number,
-		game: PropTypes.instanceOf(Game),
-		thisMove: PropTypes.instanceOf(ThisMove),
-		select: PropTypes.func,
-	};
+	// CreateBar.propTypes = {
+	// 	bar: PropTypes.arrayOf(PropTypes.string),
+	// 	barIdx: PropTypes.number,
+	// 	game: PropTypes.instanceOf(Game),
+	// 	thisMove: PropTypes.instanceOf(ThisMove),
+	// 	select: PropTypes.func,
+	// };
 
-	CreateEndBar.propTypes = {
-		player: PropTypes.instanceOf(Player),
-		select: PropTypes.func,
-	};
+	// CreateEndBar.propTypes = {
+	// 	player: PropTypes.instanceOf(Player),
+	// 	select: PropTypes.func,
+	// };
 
-	CreatePiece.propTypes = {
-		bar: PropTypes.arrayOf(PropTypes.string),
-		barIdx: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-		piece: PropTypes.string,
-		pieceIdx: PropTypes.number,
-		border: PropTypes.string,
-	};
+	// CreatePiece.propTypes = {
+	// 	bar: PropTypes.arrayOf(PropTypes.string),
+	// 	barIdx: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+	// 	piece: PropTypes.string,
+	// 	pieceIdx: PropTypes.number,
+	// 	border: PropTypes.string,
+	// };
+
+	// console.log('DOM RENDER BoardTop props:', props);
 
 	return (
 		<div className="board-top">
 			<CreateEndBar
-				player={props.game.whitePlayer}
+				player={props.game._whitePlayer}
 				key={'left-bar'}
 				game={props.game}
 				thisMove={props.thisMove}
@@ -43,7 +45,7 @@ export default function BoardTop(props) {
 			<CreateBoard />
 
 			<CreateEndBar
-				player={props.game.blackPlayer}
+				player={props.game._blackPlayer}
 				key={'right-bar'}
 				game={props.game}
 				thisMove={props.thisMove}
@@ -52,11 +54,10 @@ export default function BoardTop(props) {
 		</div>
 	);
 
-
 	function CreateBoard() {
 		return (
 			<Board>
-				{props.game.board.map((bar, barIdx) => (
+				{props.game._board.map((bar, barIdx) => (
 					<CreateBar
 						bar={bar}
 						barIdx={barIdx}
@@ -77,7 +78,7 @@ export default function BoardTop(props) {
 				onClick={() => props.select(props.barIdx)}
 				key={props.barIdx}
 				fill={
-					(props.thisMove.canGoTo.includes(props.barIdx) &&
+					(props.thisMove._canGoTo.includes(props.barIdx) &&
 						'#671010') ||
 					(props.barIdx % 2 === 0 &&
 						props.barIdx > 11 &&
@@ -111,10 +112,10 @@ export default function BoardTop(props) {
 												props.barIdx <= 11)) &&
 										'2px solid #671010') ||
 									(piece === 'White'
-										? props.game.whitePlayer
-												.pieceBorderColor
-										: props.game.blackPlayer
-												.pieceBorderColor)
+										? props.game._whitePlayer
+												._pieceBorderColor
+										: props.game._blackPlayer
+												._pieceBorderColor)
 								}
 								{...props}
 							/>
@@ -126,7 +127,7 @@ export default function BoardTop(props) {
 
 	function CreateEndBar(props) {
 		// console.log("Create end bar Props format:", props);
-		
+
 		// console.log(`player:`, props.player);
 		// console.log('player endbar', props.player.endBar);
 
@@ -178,11 +179,10 @@ export default function BoardTop(props) {
 			</Piece>
 		);
 	}
-
 }
 
-BoardTop.propTypes = {
-	game: PropTypes.instanceOf(Game),
-	thisMove: PropTypes.instanceOf(ThisMove),
-	select: PropTypes.func,
-};
+// BoardTop.propTypes = {
+// 	game: PropTypes.instanceOf(Game),
+// 	thisMove: PropTypes.instanceOf(ThisMove),
+// 	select: PropTypes.func,
+// };

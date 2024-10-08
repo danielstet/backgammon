@@ -1,5 +1,7 @@
 const { Server } = require('socket.io');
 const { v4: uuidv4 } = require('uuid');
+
+
 require('dotenv').config();
 
 const io = new Server({ cors: process.env.CLIENT_CORS });
@@ -9,6 +11,8 @@ let publicRooms = [];
 
 io.on('connection', (socket) => {
 	console.log('New connection: ', socket.id);
+
+	socket.emit('mySocketId', { id: socket.id });
 
 	// Listen to a connection and add a new player
 	socket.on('addNewPlayer', (userId) => {
@@ -73,6 +77,81 @@ io.on('connection', (socket) => {
 		}
 	});
 
+	// // turnData
+	// socket.on('thisTurn', (thisTurnData) => {
+	// 	console.log('thisTurnData', { ...thisTurnData });
+	// 	const room = thisTurnData.roomData.roomId;
+	// 	io.to(room).emit('moveMade', thisTurnData);
+	// });
+
+	// turnData
+	socket.on('thisTurn', (thisTurnData) => {
+		console.log('thisTurnData', { ...thisTurnData });
+
+		// Check if roomId exists in roomData
+		const roomId = thisTurnData.roomData?.RoomId;
+
+		if (!roomId) {
+			socket.emit('error', 'Room ID is missing.'); // Notify if roomId is not present
+			return;
+		}
+
+		// Check if the room exists in publicRooms
+		const room = publicRooms.find((room) => room.RoomId === roomId);
+
+		if (!room) {
+			socket.emit('error', 'Room not found.'); // Notify if the room does not exist
+			return;
+		}
+
+		// Emit the turnMade event to the specified room
+		io.to(roomId).emit('turnMade', thisTurnData);
+	});
+
+	socket.on('game', (gameData) => {
+		console.log('gameData:', { ...gameData });
+
+		// Check if roomId exists in roomData
+		const roomId = gameData.roomData?.RoomId;
+
+		if (!roomId) {
+			socket.emit('error', 'Room ID is missing.'); // Notify if roomId is not present
+			return;
+		}
+
+		// Check if the room exists in publicRooms
+		const room = publicRooms.find((room) => room.RoomId === roomId);
+
+		if (!room) {
+			socket.emit('error', 'Room not found.'); // Notify if the room does not exist
+			return;
+		}
+		// Emit the moveMade event to the specified room
+		io.to(roomId).emit('gameOn', gameData);
+	})
+
+	socket.on('thisMove', (thisMoveData) => {
+		console.log('thisMove', { ...thisMoveData });
+
+		// Check if roomId exists in roomData
+		const roomId = thisMoveData.roomData?.RoomId;
+
+		if (!roomId) {
+			socket.emit('error', 'Room ID is missing.'); // Notify if roomId is not present
+			return;
+		}
+
+		// Check if the room exists in publicRooms
+		const room = publicRooms.find((room) => room.RoomId === roomId);
+
+		if (!room) {
+			socket.emit('error', 'Room not found.'); // Notify if the room does not exist
+			return;
+		}
+
+		io.to(roomId).emit('moveMade', thisMoveData)
+	})
+
 	// Handle room joining
 	socket.on('joinRoom', (roomData) => {
 		// check for existing room
@@ -83,21 +162,20 @@ io.on('connection', (socket) => {
 		if (room) {
 			const creatorId = room.CreatorId; // get the room creator Id
 			room.OpponentId = roomData.OpponentId; // Set the opponent Id
-			const opponentId = room.OpponentId; // needed for filtering 
+			const opponentId = room.OpponentId; // needed for filtering
 
 			// Search the creator socketData in the players pool
 			const creatorSocketData = onlinePlayers.find(
 				(user) => user.userId === creatorId
 			);
 			if (creatorSocketData) {
-
 				// Join the creator to the room as well
 				socket.join(roomData.RoomId); // Join the opponent
 
 				//filter the room in case the oppoenent is hosting a game
 				publicRooms = publicRooms.filter((room) => {
-					return room.CreatorId !== opponentId
-				})
+					return room.CreatorId !== opponentId;
+				});
 
 				// Get the socket instance of the creator
 				const creatorSocketInstance = io.sockets.sockets.get(

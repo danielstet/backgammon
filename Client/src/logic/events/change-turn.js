@@ -5,7 +5,7 @@ import ThisTurn from '../models/this-turn';
 import PropTypes from 'prop-types';
 
 export function changeTurn(game, thisTurn) {
-	if (game.gameOn) {
+	if (game._gameOn) {
 		thisTurn = changingTurn(thisTurn);
 	}
 
@@ -13,20 +13,24 @@ export function changeTurn(game, thisTurn) {
 }
 
 export function changingTurn(oldTurn) {
+	console.log("Changing turn!");
+	console.log("oldTurn", oldTurn);
+	
+
 	const thisTurn = new ThisTurn(
-		oldTurn.opponentPlayer,
-		oldTurn.turnPlayer,
+		oldTurn._opponentPlayer,
+		oldTurn._turnPlayer,
 		[],
 		false
 	);
 
-	const message = `Turn is now ${thisTurn.turnPlayer.icon}`;
+	const message = `Turn is now ${thisTurn._turnPlayer._icon}`;
 	toast.success(message, toastStyle(thisTurn));
 
 	return thisTurn;
 }
 
-changeTurn.propTypes = {
-	game: PropTypes.instanceOf(Game),
-	thisTurn: PropTypes.instanceOf(ThisTurn),
-};
+// changeTurn.propTypes = {
+// 	game: PropTypes.instanceOf(Game),
+// 	thisTurn: PropTypes.instanceOf(ThisTurn),
+// };

@@ -63,10 +63,13 @@ export function startingGame(game) {
 		}
 	}
 
+
 	return thisTurn;
 }
 
+
+
 // Define PropTypes for the functions
-startingGame.propTypes = {
-	game: PropTypes.instanceOf(Game),
-};
+// startingGame.propTypes = {
+// 	game: PropTypes.instanceOf(Game),
+// };

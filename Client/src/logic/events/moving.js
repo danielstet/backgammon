@@ -5,46 +5,46 @@ import ThisTurn from '../models/this-turn';
 import { celebrateGameEnd } from './end-game';
 
 export function movingPiece(game, thisTurn, thisMove) {
-	const [fromBarIdx, toBarIdx] = [thisMove.fromBarIdx, thisMove.toBarIdx];
+	const [fromBarIdx, toBarIdx] = [thisMove._fromBarIdx, thisMove._toBarIdx];
 
 	// Throwing opponent piece out
-	if (game.board[toBarIdx].includes(thisTurn.opponentPlayer.name)) {
-		thisTurn.opponentPlayer.outBar.push(game.board[toBarIdx].pop());
+	if (game._board[toBarIdx].includes(thisTurn._opponentPlayer._name)) {
+		thisTurn._opponentPlayer._outBar.push(game._board[toBarIdx].pop());
 
-		thisTurn.opponentPlayer.inTheEnd = false;
+		thisTurn._opponentPlayer._inTheEnd = false;
 
-		if (thisTurn.opponentPlayer.name === game.whitePlayer.name) {
-			game.whitePlayer = thisTurn.opponentPlayer;
+		if (thisTurn._opponentPlayer._name === game._whitePlayer._name) {
+			game._whitePlayer = thisTurn._opponentPlayer;
 		} else {
-			game.blackPlayer = thisTurn.opponentPlayer;
+			game._blackPlayer = thisTurn._opponentPlayer;
 		}
 	}
 
 	// Returning an out piece
-	if (fromBarIdx === thisTurn.turnPlayer.outBarIdx) {
-		game.board[toBarIdx].push(thisTurn.turnPlayer.outBar.pop());
+	if (fromBarIdx === thisTurn._turnPlayer._outBarIdx) {
+		game._board[toBarIdx].push(thisTurn._turnPlayer._outBar.pop());
 
-		if (thisTurn.turnPlayer.name === game.whitePlayer.name) {
-			game.whitePlayer = thisTurn.turnPlayer;
+		if (thisTurn._turnPlayer._name === game._whitePlayer._name) {
+			game._whitePlayer = thisTurn._turnPlayer;
 		} else {
-			game.blackPlayer = thisTurn.turnPlayer;
+			game._blackPlayer = thisTurn._turnPlayer;
 		}
 
 		return game;
 	}
 
 	// Taking a piece out to end bar
-	if (fromBarIdx === thisTurn.turnPlayer.endBarIdx) {
-		thisTurn.turnPlayer.endBar.push(game.board[toBarIdx].pop());
+	if (fromBarIdx === thisTurn._turnPlayer._endBarIdx) {
+		thisTurn._turnPlayer._endBar.push(game._board[toBarIdx].pop());
 
-		if (thisTurn.turnPlayer.name === game.whitePlayer.name) {
-			game.whitePlayer = thisTurn.turnPlayer;
+		if (thisTurn._turnPlayer._name === game._whitePlayer._name) {
+			game._whitePlayer = thisTurn._turnPlayer;
 		} else {
-			game.blackPlayer = thisTurn.turnPlayer;
+			game._blackPlayer = thisTurn._turnPlayer;
 		}
 
-		if (thisTurn.turnPlayer.endBar.length === 15) {
-			game.gameOn = false;
+		if (thisTurn._turnPlayer._endBar.length === 15) {
+			game._gameOn = false;
 			celebrateGameEnd(thisTurn);
 		}
 
@@ -52,14 +52,14 @@ export function movingPiece(game, thisTurn, thisMove) {
 	}
 
 	// Moving from 'from' to 'to'
-	game.board[toBarIdx].push(game.board[fromBarIdx].pop());
+	game._board[toBarIdx].push(game._board[fromBarIdx].pop());
 
 	return game;
 }
 
 // Define prop types for the movingPiece function
-movingPiece.propTypes = {
-	game: PropTypes.instanceOf(Game),
-	thisTurn: PropTypes.instanceOf(ThisTurn),
-	thisMove: PropTypes.instanceOf(ThisMove),
-};
+// movingPiece.propTypes = {
+// 	game: PropTypes.instanceOf(Game),
+// 	thisTurn: PropTypes.instanceOf(ThisTurn),
+// 	thisMove: PropTypes.instanceOf(ThisMove),
+// };

@@ -7,11 +7,11 @@ import ThisTurn from '../models/this-turn';
 export function readyToEnd(game, thisTurn) {
 	const containing = [];
 
-	game.board.map((bar, barIdx) => {
-		if (bar.includes(thisTurn.turnPlayer.name)) containing.push(barIdx);
+	game._board.map((bar, barIdx) => {
+		if (bar.includes(thisTurn._turnPlayer._name)) containing.push(barIdx);
 	});
 
-	if (thisTurn.turnPlayer.name === 'White') {
+	if (thisTurn._turnPlayer._name === 'White') {
 		for (let i = 0; i < containing.length; i++) {
 			const barIdx = containing[i];
 
@@ -30,17 +30,17 @@ export function readyToEnd(game, thisTurn) {
 
 export function celebrateGameEnd(thisTurn) {
 	toast(
-		`${thisTurn.turnPlayer.icon} has Won the Game!`,
+		`${thisTurn._turnPlayer._icon} has Won the Game!`,
 		toastStyle(thisTurn)
 	);
 }
 
 // Define prop types for the functions
-readyToEnd.propTypes = {
-	game: PropTypes.instanceOf(Game),
-	thisTurn: PropTypes.instanceOf(ThisTurn),
-};
+// readyToEnd.propTypes = {
+// 	game: PropTypes.instanceOf(Game),
+// 	thisTurn: PropTypes.instanceOf(ThisTurn),
+// };
 
-celebrateGameEnd.propTypes = {
-	thisTurn: PropTypes.instanceOf(ThisTurn),
-};
+// celebrateGameEnd.propTypes = {
+// 	thisTurn: PropTypes.instanceOf(ThisTurn),
+// };

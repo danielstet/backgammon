@@ -6,14 +6,18 @@ import PropTypes from 'prop-types';
 export const GameContext = createContext();
 
 const GameContextProvider = ({ children, user }) => {
-	console.log(user);
+	// console.log(user);
 	const navigate = useNavigate();
 
 	const [socket, setSocket] = useState(null);
+	const [mySocketId, setSocketId] = useState(null);
 	const [onlinePlayers, setOnlinePlayers] = useState([]);
 	const [publicRoom, setPublicRoom] = useState(null);
 	const [publicRoomError, setPublicRoomError] = useState(null);
 	const [publicRooms, setPublicRooms] = useState([]);
+	const [socketThisTurn, setSocketThisTurn] = useState(null);
+	const [socketGameData, setSocketGameData] = useState(null);
+	const [socketThisMove, setSocketThisMove] = useState(null)
 
 	// Initialize socket
 	useEffect(() => {
@@ -22,10 +26,19 @@ const GameContextProvider = ({ children, user }) => {
 		);
 		setSocket(newSocket);
 
+		// TODO: check for existing room session if exists set as publicRoom
+
 		return () => {
 			newSocket.disconnect();
 		};
 	}, [user]);
+
+	useEffect(() => {
+		if (socket === null) return;
+		socket.on('error', (res) => {
+			console.log('error:', res);
+		});
+	}, [socket]);
 
 	// Add online players
 	useEffect(() => {
@@ -34,6 +47,10 @@ const GameContextProvider = ({ children, user }) => {
 		socket.emit('addNewPlayer', user?._id);
 		socket.on('getOnlinePlayers', (res) => {
 			setOnlinePlayers(res);
+		});
+		socket.on('mySocketId', (res) => {
+			console.log('My Socket ID from server:', res.id);
+			setSocketId(res.id);
 		});
 	}, [socket]);
 
@@ -120,9 +137,96 @@ const GameContextProvider = ({ children, user }) => {
 		};
 	}, [socket]);
 
+	// get this turn data
+	useEffect(() => {
+		if (socket === null) return;
+
+		const moveMadeHandler = (res) => {
+			console.log('recivied this turn data:', res.thisTurnData);
+			setSocketThisTurn(res.thisTurnData);
+		};
+
+		socket.on('turnMade', moveMadeHandler);
+
+		// Cleanup function
+		return () => {
+			socket.off('turnMade', moveMadeHandler);
+		};
+	}, [socket]);
+
+	// send this turn data
+	const sendThisTurn = useCallback(
+		(thisTurn) => {
+			socket.emit('thisTurn', {
+				userId: user?._id,
+				roomData: publicRoom,
+				thisTurnData: thisTurn,
+			});
+		},
+		[socket, publicRoom]
+	);
+
+	// get game data
+	useEffect(() => {
+		if (socket === null) return;
+
+		const gameOnHandler = (res) => {
+			console.log('recivied gameOn data', res);
+
+			setSocketGameData(res.gameData);
+		};
+
+		socket.on('gameOn', gameOnHandler);
+		// Cleanup function
+		return () => {
+			socket.off('gameOn', gameOnHandler);
+		};
+	}, [socket]);
+
+	// send game data
+	const sendGame = useCallback(
+		(game) => {
+			socket.emit('game', {
+				userId: user?._id,
+				roomData: publicRoom,
+				gameData: game,
+			});
+		},
+		[socket, publicRoom]
+	);
+
+	// get thisMove Data
+	useEffect(() => {
+	if (socket === null) return;
+
+	const thisMoveHandler = (res) => {
+		console.log('recivied thisMove data', res);
+		setSocketThisMove(res.thisMoveData);
+	};
+
+		socket.on('moveMade', thisMoveHandler);
+		
+		return () => {
+			socket.off('moveMade', thisMoveHandler)
+		}
+	}, [socket])
+
+	// send thisMove data
+	const sendThisMove = useCallback(
+		(thisMove) => {
+			socket.emit('thisMove', {
+				userId: user?._id,
+				roomData: publicRoom,
+				thisMoveData: thisMove,
+			});
+		},
+		[socket, publicRoom]
+	);
+
 	return (
 		<GameContext.Provider
 			value={{
+				socket,
 				onlinePlayers,
 				publicRoom,
 				publicRoomError,
@@ -130,6 +234,13 @@ const GameContextProvider = ({ children, user }) => {
 				deletePublicRoom,
 				joinRoom,
 				publicRooms,
+				mySocketId,
+				socketThisTurn,
+				socketGameData,
+				socketThisMove,
+				sendThisTurn,
+				sendGame,
+				sendThisMove,
 			}}
 		>
 			{children}

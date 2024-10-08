@@ -5,7 +5,8 @@ export default class Player {
 		outBarIdx,
 		endBarIdx,
 		pieceColor,
-		pieceBorderColor
+		pieceBorderColor,
+		playerId
 	) {
 		this._name = name;
 		this._icon = icon;
@@ -16,10 +17,15 @@ export default class Player {
 		this._outBar = [];
 		this._endBar = [];
 		this._inTheEnd = false;
+		this._playerId = playerId;
 	}
 
 	static new() {
 		return new Player('', '', '', '', '', '');
+	}
+
+	get playerId() {
+		return this._playerId
 	}
 
 	get name() {
@@ -77,7 +83,8 @@ export default class Player {
 			this._outBarIdx,
 			this._endBarIdx,
 			this._pieceColor,
-			this._pieceBorderColor
+			this._pieceBorderColor,
+			this._playerId
 		);
 
 		newPlayer.outBar = [...this.outBar];
