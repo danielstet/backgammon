@@ -1,5 +1,9 @@
 import { AuthContext } from '../context/AuthContext';
 import { useContext } from 'react';
+import Button from '../components/loginAndRegisterComponents/Button'
+import { FaUser, FaEnvelope, FaLock } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import './Login.css'
 
 const Login = () => {
 	const {
@@ -12,48 +16,49 @@ const Login = () => {
 
 	return (
 		<>
-			<form onSubmit={loginUser}>
-				<label>Login to Account</label>
-				<p>2024</p>
-
-				
-				<div>
-					<label>Email:</label>
-					<input
-						type="email"
-						placeholder="example@gmail.com"
-						onChange={(e) => {
-							updateLoginInfo({
-								...loginInfo,
-								email: e.target.value,
-							});
-						}}
-						required
-					></input>
-				</div>
-				<div>
-					<label>Password:</label>
-					<input
-						type="password"
-						placeholder="Abc$1234"
-						onChange={(e) => {
-							updateLoginInfo({
-								...loginInfo,
-								password: e.target.value,
-							});
-						}}
-						required
-					></input>
-				</div>
-				<button type="submit">
-					{!isLoginLoading ? 'Login' : 'Trying to login...'}
-				</button>
-				{loginError?.error && (
-					<div style={{ color: 'red' }}>
-						<p>{loginError?.message}</p>
+		<div className="login-container">
+		<div className="login-card">
+			<h2 style={{ fontSize: '1.5rem' }}>Login</h2>
+			<p>Enter your details to access your account</p>
+			<form onSubmit={loginUser} className="login-form">
+					<div>
+						<label htmlFor="email" className="input-highlight">
+							<FaEnvelope /> Email
+						</label>
+						<input
+							type="email"
+							id="email"
+							onChange={(e) => updateLoginInfo({ ...loginInfo, email: e.target.value })}
+							placeholder="example@gmail.com"
+							required
+						/>
 					</div>
-				)}
-			</form>
+					<div>
+						<label htmlFor="password" className="input-highlight">
+							<FaLock /> Password
+						</label>
+						<input
+							type="password"
+							id="password"
+							onChange={(e) => updateLoginInfo({ ...loginInfo, password: e.target.value })}
+							required
+						/>
+					</div>
+					<Button type="submit" className="btn create-account-btn">
+						{!isLoginLoading ? 'Login' : 'Trying to login...'}
+					</Button>
+					{loginError?.error && (
+						<div className='loginError' style={{ color: 'red' }}>
+							<p>{loginError?.message}</p>
+						</div>
+					)}
+					<p className="redirect-link">
+						Don't have an account?{' '}
+						<Link to="/Register" className="register-link">Register</Link>
+					</p>
+				</form>
+		</div>
+		</div>
 		</>
 	);
 };

@@ -57,32 +57,33 @@ const UserChat = ({ chat, user }) => {
 							height="35px"
 							alt="User Avatar"
 						/>
-					</div>
-					<div className="text-content">
-						<div className="name">{recipientUser?.name}</div>
-						<div className="text">
-							{latestMessage?.text && (
-								<span>{truncateText(latestMessage?.text)}</span>
-							)}
+						<div className="name">
+							{recipientUser?.name}
+							<div className="text">
+								{latestMessage?.text && (
+									<span>{truncateText(latestMessage?.text)}</span>
+								)}
+							</div>
 						</div>
 					</div>
-					<div className="date-container">
-						<div className="date">
-							{moment(latestMessage?.createdAt).calendar()}
+						<div className="date-container">
+							<div className="date">
+								{moment(latestMessage?.createdAt).calendar()}
+							</div>
+							<div
+								className={
+									thisUserNotifications?.length > 0
+										? 'this-user-notifications'
+										: ''
+								}
+							>
+								{thisUserNotifications?.length > 0
+									? thisUserNotifications?.length
+									: ''}
+							</div>
+							<span className={isOnline ? 'user-online' : ''}></span>
 						</div>
-						<div
-							className={
-								thisUserNotifications?.length > 0
-									? 'this-user-notifications'
-									: ''
-							}
-						>
-							{thisUserNotifications?.length > 0
-								? thisUserNotifications?.length
-								: ''}
-						</div>
-						<span className={isOnline ? 'user-online' : ''}></span>
-					</div>
+			
 				</div>
 			</div>
 		</>

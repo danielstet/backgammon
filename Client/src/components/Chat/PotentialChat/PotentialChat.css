@@ -1,27 +1,49 @@
 .PotentialChats {
-    background-color: darkgray;
+    margin-top: 0.3rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
     width: auto;
     height: 80px;
     text-align: center;
 }
+.title { 
+  text-align: start;
+  color: black;
+  font-weight: 400;
+  font-size: medium;
+}
+
+.title > svg {
+  margin-right: 0.4rem;
+}
 
 .all-users {
-    background-color: aqua;
+    /* background-color: aqua; */
     display:flex;
     flex-direction: row;
-    gap: 0.4rem;
-    max-height: 80px;
+    gap: 0.2rem;
+    max-height: fit-content;
 }
 
 .single-user {
-    background-color: orange;
+    background-color: black;
     width: fit-content;
-    padding: 0.2rem;
+    padding-right: 0.6rem;
+    padding-left: 0.6rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
     cursor:default;
+    color: white;
+    border-radius: 0.6rem;
+}
+
+.single-user > svg {
+  margin-right: 0.4rem;
 }
 
 .single-user:hover {
-    background-color: rgb(252, 188, 68);
+    background-color: rgb(49, 49, 49);
 }
 
 .horizontal-stack {

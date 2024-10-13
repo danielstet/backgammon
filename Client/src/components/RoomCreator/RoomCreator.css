@@ -1,3 +1,57 @@
 .bg{
-    background-color: orange;
+    /* background-color: rgb(240, 240, 240); */
+    border-radius: 2rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+}
+
+.playerCounter{
+    font-size: medium;
+    color: #292929;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.playerCounter > svg{
+    align-self: center;
+}
+
+.flex{
+    display: flex;
+    gap: 5rem;
+    justify-content: space-between;
+    align-items: center; 
+    height: 4vh;
+}
+.flex > button {
+    /* margin-top: 1rem; */
+    max-height: fit-content;
+    border: #292929;
+    width: 9.5rem;
+}
+
+.flex > button > svg {
+    margin-right: 0.2rem;
+}
+
+.flex > button:hover {
+    background-color: #292929;
+    border: #292929;
+}
+
+.flex > p {
+    max-height: fit-content;
+    max-width: 16rem;
+    font-size: larger;
+    color: #000;
+}
+
+.border {
+    height: 2px;
+    background-color: #29292994;
+    border-radius: 4rem;
+    margin-right: 1.2rem;
+    margin-left: 1.2rem;
 }

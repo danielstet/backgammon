@@ -1,5 +1,5 @@
 .navbar {
-	background-color: #343a40; /* Dark background */
+	background-color: #161616; /* Dark background */
 	margin-bottom: 1rem; /* Space below navbar */
 	height: 3.75rem; /* Fixed height */
 	display: flex; /* Flexbox layout */
@@ -17,6 +17,7 @@
 
 .navbar-title {
 	margin: 0; /* Remove default margin */
+	font-size: 1.5rem;
 }
 
 .navbar-link {
@@ -24,12 +25,21 @@
 	text-decoration: none; /* Remove underline */
 }
 
+.navbar-link > svg {
+	margin-right: 0.2rem;
+}
+
 .navbar-link:hover {
 	text-decoration: underline; /* Underline on hover */
 }
 
 .navbar-user {
-	color: #ffc107; /* Warning color */
+	color: #ffffff; /* Warning color */
+	display: flex;
+	gap: 0.3rem;
+}
+.navbar-user  > svg{
+	margin-left: 1rem;
 }
 
 .navbar-nav {

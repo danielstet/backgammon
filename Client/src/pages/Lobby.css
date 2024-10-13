@@ -1,0 +1,110 @@
+.deleteBtn{
+    transition: transform 0.2s ease; /* הוספת תלת מימד */
+}
+
+.deleteBtn:hover{
+    transform: translateY(-2px); /* תנועה קלה למעלה */
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    padding: 0rem;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.chat {
+    width: 800px;
+    height: 1080px;
+    border-width: 2px;     
+    border-style: solid;    
+    border-color: rgba(226, 226, 226, 0.856);   
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.4); /* X-offset, Y-offset, Blur-radius, Color */
+    border-radius: 1rem;
+}
+
+.horizontal-stack{
+    padding-right: 1.2rem;
+    padding-left: 1.2rem;
+}
+
+.lobby {
+    width: 640px;
+    height: 1080px;
+    border-width: 2px;     
+    border-style: solid;    
+    border-color: rgba(226, 226, 226, 0.856);     
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.4); /* X-offset, Y-offset, Blur-radius, Color */
+    border-radius: 1rem;
+}
+
+.myRoom {
+    padding: 1.2rem;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    height: 6vh;
+}
+
+.myRoom > .creator {
+    color: rgb(0, 134, 0);
+    font-weight: 600;
+    font-size: larger;
+}
+
+.myRoom > button {
+    height: fit-content;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+    width: 9.3rem;
+}
+
+.myRoom > button > svg {
+    margin-right: 0.2rem;
+    align-self: center;
+}
+
+.myRoom > button:hover {
+    background-color: rgb(241, 241, 241);
+    border-color: rgb(31, 31, 31);
+}
+
+.Rooms{
+    padding: 1.2rem;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    height: 6vh;
+}
+
+.Rooms > button{
+    width: 9.3rem;
+    border: black;
+}
+
+.Rooms > button:hover{
+    background-color: #292929;
+    border: black;
+}
+
+.Rooms > button > svg {
+    margin-right: 0.2rem;
+    align-self: center;
+}
+
+.roomInfo {
+    color: black;
+    font-weight: 400;
+}
+
+.Rooms > .creator {
+    color: black;
+    font-weight: 600;
+    font-size: larger;
+}

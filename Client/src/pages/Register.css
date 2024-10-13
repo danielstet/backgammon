@@ -1,0 +1,91 @@
+/* Registration.css */
+main {
+    padding-top: 80px; /* מרווח כדי להרחיק את התוכן מהתפריט */
+}
+
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* מרכז את הקונטיינר גם אנכית וגם אופקית */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* כדי לכסות את כל המסך */
+    width: 100%;
+    background: none; /* אין צורך ברקע נוסף */
+    margin-top: 45px;
+
+}
+
+.login-card {
+    background-color: white; /* השאר את הכרטיסייה עם רקע לבן */
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* הצללה תלת מימדית */
+    width: 100%;
+    max-width: 540px;
+    text-align: center;
+    border: 5px solid black; /* מסגרת שחורה בעובי של 5 פיקסלים */
+    transition: transform 0.2s ease; /* מעבר חלק על שינוי */
+}
+
+.login-card:hover {
+    transform: scale(1.02); /* התפתחות קלה בעת ריחוף */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* הצללה בולטת יותר בעת ריחוף */
+}
+
+h2 {
+    font-size: 4rem; /* Increase the size to 4rem */
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+.input-highlight {
+    color: #111827;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-form input {
+    width: 100%;
+    padding: 0.75rem; /* הגדלת ה-padding להדגשה */
+    border: 1px solid #d1d5db; /* גבול רגיל */
+    border-radius: 6px; /* רדיוס מעוגל */
+    font-size: 1rem;
+    transition: box-shadow 0.2s ease, transform 0.2s ease; /* הוספת אנימציה */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* הצללה קלה */
+}
+
+.signup-form input:focus {
+    border-color: #2563eb; /* שינוי צבע הגבול בזמן פוקוס */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* הצללה בולטת יותר בזמן פוקוס */
+    transform: translateY(-2px); /* תנועה קלה למעלה */
+}
+
+.create-account-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #111827; /* Same color as your login button */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease; /* הוספת תלת מימד */
+}
+
+.create-account-btn:hover {
+    transform: translateY(-2px); /* תלת מימד קל */
+}
+
+.registerError > p{
+    color: rgb(212, 77, 77);
+}

@@ -63,7 +63,7 @@ const ChatBox = () => {
 									: 'align-self-start'
 							}`}
 						>
-							<span>{message.text}</span>
+							<span className="msgInBubble">{message.text}</span>
 							<span className="message-footer">
 								{moment(message.createdAt).calendar()}
 							</span>

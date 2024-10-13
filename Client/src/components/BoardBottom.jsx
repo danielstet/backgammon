@@ -80,7 +80,7 @@ function BoardBottom(props) {
 				);
 			} else {
 				return (
-					<button onClick={props.rollDice}>
+					<button disabled>
 						🎲 opponent Move 🎲
 					</button>
 				);
@@ -106,7 +106,7 @@ function BoardBottom(props) {
 								selectedPiece={
 									props.player._name === 'White'
 										? pieceIdx ===
-										  props.player.outBar.length - 1
+										  props.player._outBar.length - 1
 										: pieceIdx === 0
 								}
 								{...props}

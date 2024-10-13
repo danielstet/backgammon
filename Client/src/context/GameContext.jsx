@@ -19,6 +19,8 @@ const GameContextProvider = ({ children, user }) => {
 	const [socketGameData, setSocketGameData] = useState(null);
 	const [socketThisMove, setSocketThisMove] = useState(null)
 
+	let tmp;
+
 	// Initialize socket
 	useEffect(() => {
 		const newSocket = io(
@@ -27,7 +29,33 @@ const GameContextProvider = ({ children, user }) => {
 		setSocket(newSocket);
 
 		// TODO: check for existing room session if exists set as publicRoom
+		if (localStorage.getItem('roomData') !== null)
+		{
+			let tmpData = localStorage.getItem('roomData')
+			const roomData = JSON.parse(tmpData)
+			setPublicRoom(roomData)
+		}
 
+		if (localStorage.getItem('gameData') !== null)
+			{
+				let tmpData = localStorage.getItem('gameData')
+				const gameData = JSON.parse(tmpData)
+				setSocketGameData(gameData)
+			}
+
+		if (localStorage.getItem('thisTurnData') !== null)
+				{
+					let tmpData = localStorage.getItem('thisTurnData')
+					const thisTurnData = JSON.parse(tmpData)
+					setSocketThisTurn(thisTurnData)
+				}
+
+		if (localStorage.getItem('thisMoveData') !== null)
+					{
+						let tmpData = localStorage.getItem('thisMoveData')
+						const thisMoveData = JSON.parse(tmpData)
+						setSocketThisMove(thisMoveData)
+					}
 		return () => {
 			newSocket.disconnect();
 		};
@@ -62,7 +90,13 @@ const GameContextProvider = ({ children, user }) => {
 			CreatorId: user?._id,
 			OpponentId: null,
 			RoomId: null,
+			CreatorName: user?.name
 		});
+
+
+		setSocketThisTurn(null)
+		setSocketThisMove(null)
+		setSocketGameData(null)
 	}, [socket, user]);
 
 	// Handle room creation response
@@ -71,6 +105,11 @@ const GameContextProvider = ({ children, user }) => {
 
 		socket.on('roomCreated', (roomData) => {
 			console.log(`Room created: ${roomData.RoomId}`);
+
+			// add to local storage the data
+			tmp = JSON.stringify(roomData)
+			localStorage.setItem('roomData', tmp)
+
 			setPublicRoom(roomData); // Update state or handle UI changes
 			setPublicRoomError(null); // Clear any previous errors
 		});
@@ -92,6 +131,10 @@ const GameContextProvider = ({ children, user }) => {
 	const deletePublicRoom = useCallback(
 		(RoomId) => {
 			if (socket === null) return;
+			localStorage.removeItem('roomData')
+			localStorage.removeItem('gameData')
+			localStorage.removeItem('thisTurnData')
+			localStorage.removeItem('thisMoveData')
 			socket.emit('deleteRoom', RoomId);
 		},
 		[socket]
@@ -102,7 +145,14 @@ const GameContextProvider = ({ children, user }) => {
 		(roomId) => {
 			if (socket === null) return;
 
+			setSocketThisTurn(null)
+			setSocketThisMove(null)
+			setSocketGameData(null)
 			setPublicRoom(null);
+			localStorage.removeItem('roomData')
+			localStorage.removeItem('gameData')
+			localStorage.removeItem('thisTurnData')
+			localStorage.removeItem('thisMoveData')
 
 			socket.emit('joinRoom', {
 				RoomId: roomId,
@@ -117,16 +167,35 @@ const GameContextProvider = ({ children, user }) => {
 
 		socket.on('joinedRoom', (room) => {
 			console.log(`Joined room: ${room.RoomId}`);
+			localStorage.removeItem('roomData')
+
+			tmp = JSON.stringify(room)
+			localStorage.setItem('roomData', tmp)
 			setPublicRoom(room); // Store the joined room details
+			setSocketGameData(null)
+			setSocketThisTurn(null)
+			setSocketThisMove(null)
 			navigate('/Game');
 		});
 
 		socket.on('opponentJoined', (opponentId) => {
 			console.log(`Opponent joined: ${opponentId} your room`);
-			setPublicRoom((prevRoom) => ({
-				...prevRoom,
-				OpponentId: opponentId,
-			}));
+		
+			localStorage.removeItem('roomData');
+
+			// setSocketGameData(null)
+			setPublicRoom((prevRoom) => {
+				const updatedRoom = {
+					...prevRoom,
+					OpponentId: opponentId,
+				};
+				
+				const tmp = JSON.stringify(updatedRoom);
+				localStorage.setItem('roomData', tmp);
+		
+				return updatedRoom; // Return the updated room state
+			});
+		
 			navigate('/Game');
 		});
 
@@ -144,6 +213,9 @@ const GameContextProvider = ({ children, user }) => {
 		const moveMadeHandler = (res) => {
 			console.log('recivied this turn data:', res.thisTurnData);
 			setSocketThisTurn(res.thisTurnData);
+
+			localStorage.removeItem('thisTurnData')
+			localStorage.setItem('thisTurnData', JSON.stringify(res.thisTurnData))
 		};
 
 		socket.on('turnMade', moveMadeHandler);
@@ -174,6 +246,8 @@ const GameContextProvider = ({ children, user }) => {
 			console.log('recivied gameOn data', res);
 
 			setSocketGameData(res.gameData);
+			localStorage.removeItem('gameData')
+			localStorage.setItem('gameData', JSON.stringify(res.gameData))
 		};
 
 		socket.on('gameOn', gameOnHandler);
@@ -202,6 +276,8 @@ const GameContextProvider = ({ children, user }) => {
 	const thisMoveHandler = (res) => {
 		console.log('recivied thisMove data', res);
 		setSocketThisMove(res.thisMoveData);
+		localStorage.removeItem('thisMoveData')
+		localStorage.setItem('thisMoveData', JSON.stringify(res.thisMoveData))
 	};
 
 		socket.on('moveMade', thisMoveHandler);

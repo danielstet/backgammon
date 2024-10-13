@@ -1,13 +1,19 @@
 .chat-box {
 	/* הקופסה של הצ'אט */
 	gap: 1rem; /* מרווחים בין אלמנטים */
-	min-width: 30rem;
+	min-width: 27rem;
 	max-height: 600px; /* גובה מקסימלי של הצ'אט */
-	border-color: orange;
+	border-color: black;
 	border-width: 1px;
 	border-style: solid;
 	display: flex;
 	flex-direction: column; /* הערמת אלמנטים אנכית */
+	border-radius: 1rem;
+	padding: 0.6rem;
+}
+.chat-header{
+	align-self: start;
+	margin-left: 0.3rem;
 }
 
 .messages {
@@ -21,18 +27,30 @@
 
 .message {
 	padding: 0.5rem;
-	border-radius: 5px;
+	border-radius: 10px 10px 10px 0px;
 	display: flex;
 	flex-direction: column;
+	box-shadow: -2px 4px 6px #2c2c2c54;
+}
+
+.message-footer{
+	font-size: small;
 }
 
 .self {
-	background-color: #d1e7dd; /* צבע רקע להודעות שנשלחו */
+	background-color: #2c2c2c; /* צבע רקע להודעות שנשלחו */
 	align-self: flex-end; /* מיקום ההודעות שנשלחו */
+	color: white;
+	border-radius: 10px 10px 0px 10px;
+	box-shadow: 2px 4px 6px #2c2c2c54;
+}
+
+.msgInBubble{
+	text-align: start;
 }
 
 .align-self-start {
-	background-color: #f8d7da; /* צבע רקע להודעות שהתקבלו */
+	background-color: #eeeeee; /* צבע רקע להודעות שהתקבלו */
 	align-self: flex-start; /* מיקום ההודעות שהתקבלו */
 }
 
